@@ -2,7 +2,10 @@
 this file is main stylesheet for welcome.html
 */
 
-
+body {
+    background-image: url("../images/bg.png");
+    background-color: #000;
+}
 
 .fancy-header {
     color: purple; /* single line comment */
