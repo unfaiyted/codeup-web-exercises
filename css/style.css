@@ -5,6 +5,6 @@ this file is main stylesheet for welcome.html
 
 
 .fancy-header {
-    color: blue; /* single line comment */
+    color: purple; /* single line comment */
     text-decoration: underline;
 }
