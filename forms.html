@@ -21,7 +21,7 @@ https://requestb.in/1cs52br1
     [x] Only one of the values should be allowed to be selected at a time.
 
 
-Change these inputs so that multiple answers are allowed to be selected.
+ [done] Change these inputs so that multiple answers are allowed to be selected.
 
  [x] Create a dropdown that asks the user what web browser they are using.
 
@@ -32,14 +32,15 @@ As you work through the steps above, you should:
 
 Experiment with different attribute values:
 
+What happens if the inputs are given different name attributes?
+    ->  Allows for multiple selection data is stored under each name separately.
 What do you notice when changing the form's request method from GET to POST?
-    -> https://requestb.in/1cs52br1?email=&password=&browser=edge
+    -> example: https://requestb.in/1cs52br1?email=&password=&browser=edge
     -> variables are passed through the browser http line in open air
 What happens if you leave off the name attribute on an input?
     -> data is not passed correctly to the next page
 What happens if you leave off the id attribute on a form input?
     -> Labels wont be attacked to the associated id anymore and reduce some functionality
-    ->
 
  -->
 
@@ -55,13 +56,12 @@ What happens if you leave off the id attribute on a form input?
 
     <h3>Where did you hear about us?</h3>
 
-    <label for="foundus_1"> <input type="radio"  name="foundus" id="foundus_1" value="billboard"> Billboard</label> <br>
-    <label for="foundus_2"> <input type="radio" name="foundus" id="foundus_2" value="radio"> Radio Station </label> <br>
-    <label for="foundus_3"> <input type="radio"  name="foundus" id="foundus_3" value="internet">Internet Advertisement </label><br>
-    <label for="foundus_4"> <input type="radio"  name="foundus" id="foundus_4" value="other">Other </label> <br>
+    <label for="foundus_1"> <input type="radio"  name="foundus_1" id="foundus_1" value="billboard"> Billboard</label> <br>
+    <label for="foundus_2"> <input type="radio" name="foundus_2" id="foundus_2" value="radio"> Radio Station </label> <br>
+    <label for="foundus_3"> <input type="radio"  name="foundus_3" id="foundus_3" value="internet">Internet Advertisement </label><br>
+    <label for="foundus_4"> <input type="radio"  name="foundus_4" id="foundus_4" value="other">Other </label> <br>
 <!--
-    What happens if the inputs are given different name attributes?
-       ->  Allows for multiple selection data is stored under each name separately.
+
 -->
 
 
