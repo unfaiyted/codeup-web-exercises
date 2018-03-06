@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 /*
-this file is main stylesheet for welcome.html
+this file is main stylesheet for welcome.html`
 */
 
 body {
@@ -18,37 +19,120 @@ body {
 #main {
     width: 100%;
     background-color: rgba(168, 168, 168, 0.5);
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
+    boarder-right: 5px;
+    border-left: 5px;
+    -webkit-box-shadow: 0px 0px 56px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 56px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 56px -9px rgba(0,0,0,0.75);
 }
+
+
+#header {
+    background: #af2b2b;
+    border-radius: 0px 0px 200px 200px;
+    -moz-border-radius: 0px 0px 200px 200px;
+    -webkit-border-radius: 0px 0px 200px 200px;
+    border: 0px solid #000000;
+    margin-top:0px;
+    margin-bottom:10px;
+    background: -moz-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+    -webkit-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+
+
+}
+
 
 h1,h2,h3,h4,h5 {
-    font-size 0.9rem;
+    margin-top:0;
+    padding-top: 15px;
     text-decoration: underline;
+    font-family: 'Josefin Sans', sans-serif;
 
 }
 
-ul {
+ul,ol {
     list-style: none;
 }
 
-.list-group {
-    width: 33%;
-    float: left;
-
+#group-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    height: 180px;
+    text-align: center;
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+    -webkit-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
 }
+
+.list-group {
+    width: 30%;
+    display: inline-block;
+    text-align: left;
+    height: 175px;
+    padding: 5px;
+}
+
 .slogan {
 text-align: center;
+    color: #fff;
+    padding-bottom: 15px;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+
+
 ul li:before {
-    content: '✓';
+    content: '✓ ';
     font-size: 1.5rem;
 }
 
 
+ol {
+    counter-reset: listNumbering;
+}
+
+li {
+    font-size: 1em;
+    counter-increment: listNumbering;
+}
+
+ol li:before {
+    content: counter(listNumbering) '. ';
+    font-size: 1.5rem;
+}
+
+
+.topper:before {
+    content: '⇧ ';
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+a {
+text-decoration: none;
+}
+
 
 .fancy-header {
-    color: purple; /* single line comment */
+    color: #fff; /* single line comment */
     text-decoration: underline;
     text-align: center;
 }
@@ -57,7 +141,9 @@ img {
     padding: 8px;
     margin: 15px;
     background-color: #fff;
-
+    -webkit-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
 
 }
 
@@ -67,6 +153,12 @@ table {
     padding: 5px;
     text-align: right;
     background-color: #fff;
+    -webkit-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 32px -7px rgba(0,0,0,0.75);
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid;
 }
 
 table tr {
@@ -76,13 +168,68 @@ table tr {
 table th {
     font-size: 1.3rem;
     font-weight: bold;
+    color: #fff;
+    border-bottom: 1px solid #000;
+    text-align: left;
+    padding: 10px;
+
+    background: #7abcff; /* Old browsers */
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-9 */
 
 }
 
 table td {
-    font-size 1.0rem;
+    font-size: 1.0rem;
+    padding: 10px;
+    border:0px;
+    border-right:1px solid;
 
 }
+
+table tr:nth-child(even) {background: #c7d2e2}
+table tr:nth-child(odd) {background: #FFF}
+
+
+#footer {
+    width: 100%;
+    height: 50px;
+}
+
+#footer p {
+float: right;
+margin-top:35px;
+}
+
+#footer a {
+    float: left;
+    margin-top: 35px;
+}
+
+/* unvisited link (:link) */
+#footer a:link {
+    color:#af2b2b;
+}
+
+/* visited link (:visited) */
+#footer :visited {
+    color:#af2b2b;
+}
+
+/* mouse hover over link (:hover) */
+#footer a:hover {
+    color:#2a68af;
+    text-decoration: underline;
+}
+
+/* active/selected link (:active) */
+#footer a:active {
+    color:#2a68af;
+}
+
+
 /*
 
 
@@ -90,10 +237,10 @@ Center the main heading
 Add a style to change the color of the headers on your page and make them underlined. xxxx
 Add a style to change the background color of the page. xxx
 Add a style to add a background image to your background. xxx
-Search how to manipulate the position, sizing of this background image.
-Add a style to change the list-style to something other than the default bullet.
-Add a style to change the font for the entire page. Use google fonts if you would like.
-Add a style to change the table, table cells td and rows tr padding and font sizes.
+Search how to manipulate the position, sizing of this background image. I wanted it to repeat x,y for pattern
+Add a style to change the list-style to something other than the default bullet. xxx
+Add a style to change the font for the entire page. Use google fonts if you would like. xxxx
+Add a style to change the table, table cells td and rows tr padding and font sizes. xxx
 Add a style to alter the anchor tags and its different states. (e.g. link, visited, hover and active).
 Continue experimenting with styles to increase the visual appeal of the page.
 
