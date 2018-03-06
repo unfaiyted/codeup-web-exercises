@@ -12,65 +12,73 @@ REquest Bin URl
 https://requestb.in/1cs52br1
 
 
-Create text fields for email and password with appropriate placeholder values.
+ [x] Create text fields for email and password with appropriate placeholder values.
 
-Create a textarea named "bio". This is for the user to fill out a short description of themselves.
+ [x] Create a textarea named "bio". This is for the user to fill out a short description of themselves.
 
-Create a "How did you hear about us" section that contains radio buttons. The values should be "billboard", "radio advertisement", "internet advertisement", and "other". Only one of the values should be allowed to be selected at a time.
+ [x] Create a "How did you hear about us" section that contains radio buttons.
+    [x] The values should be "billboard", "radio advertisement", "internet advertisement", and "other".
+    [x] Only one of the values should be allowed to be selected at a time.
 
 
 Change these inputs so that multiple answers are allowed to be selected.
-Create a dropdown that asks the user what web browser they are using.
+
+ [x] Create a dropdown that asks the user what web browser they are using.
 
 As you work through the steps above, you should:
 
-Make sure all of your form elements have labels.
-Ensure that all of your form values are being submitted by checking the output on request bin.
-Experiment with different attribute values:
-What do you notice when changing the form's request method from GET to POST?
-What happens if you leave off the name attribute on an input?
-What happens if you leave off the id attribute on a form input?
+ [x]   Make sure all of your form elements have labels.
+ [x]   Ensure that all of your form values are being submitted by checking the output on request bin.
 
+Experiment with different attribute values:
+
+What do you notice when changing the form's request method from GET to POST?
+    -> https://requestb.in/1cs52br1?email=&password=&browser=edge
+    -> variables are passed through the browser http line in open air
+What happens if you leave off the name attribute on an input?
+    -> data is not passed correctly to the next page
+What happens if you leave off the id attribute on a form input?
+    -> Labels wont be attacked to the associated id anymore and reduce some functionality
+    ->
 
  -->
 
 <form method="POST" action="https://requestb.in/1cs52br1">
 
 
-    <label for="email">Email <input type="text" name="email" id="email"/></label>
-    <label for="password">Password <input type="password"  name="password" id="password"/></label>
+    <label for="email">Email <input type="text" name="email" id="email" value="me@email.com"/></label> <br>
+    <label for="password">Password <input type="password"  name="password" id="password" value="password"/></label> <br>
 
+    <label for="bio">Bio:
+        <textarea name="bio" id="bio" rows="10" cols="30">Describe yourself!</textarea>
+    </label><br>
 
+    <h3>Where did you hear about us?</h3>
 
-        <texatarea name="bio" id="bio">
-        </texatarea>
-
-
-    <h5>Where did you hear about us?</h5>
-
-    <label for="foundus_1"> Billboard <input type="radio"  name="foundus" id="foundus_1" value="billboard"></label>
-    <label for="foundus_2"> Radio Station <input type="radio" name="foundus" id="foundus_2" value="radio"></label>
-    <label for="foundus_3"> Internet Advertisement <input type="radio"  name="foundus" id="foundus_3" value="internet"></label>
-    <label for="foundus_4"> Other <input type="radio"  name="foundus" id="foundus_4" value="other"></label>
+    <label for="foundus_1"> <input type="radio"  name="foundus" id="foundus_1" value="billboard"> Billboard</label> <br>
+    <label for="foundus_2"> <input type="radio" name="foundus" id="foundus_2" value="radio"> Radio Station </label> <br>
+    <label for="foundus_3"> <input type="radio"  name="foundus" id="foundus_3" value="internet">Internet Advertisement </label><br>
+    <label for="foundus_4"> <input type="radio"  name="foundus" id="foundus_4" value="other">Other </label> <br>
 <!--
     What happens if the inputs are given different name attributes?
-        Allows for multiple selection data is stored under each name separately.
+       ->  Allows for multiple selection data is stored under each name separately.
 -->
 
 
-    <h5>What browser are you using?</h5>
+    <h3>What browser are you using?</h3>
 
-    <select name="browser">
-        <option value="edge">Microsoft Edge</option>
-        <option value="explorer">Microsoft Explorer</option>
-        <option value="chrome">Google Chrome</option>
-        <option value="safari">Safari</option>
-        <option value="opera">Opera</option>
-        <option value="firefox">Firefox</option>
-        <option value="other">Other</option>
-    </select>
+        <select name="browser">
+            <option value="edge">Microsoft Edge</option>
+            <option value="explorer">Microsoft Explorer</option>
+            <option value="chrome">Google Chrome</option>
+            <option value="safari">Safari</option>
+            <option value="opera">Opera</option>
+            <option value="firefox">Firefox</option>
+            <option value="other">Other</option>
+        </select> <br>
 
-    <input type="submit">
+    <h3>All done? </h3>
+   <label for="submit">  Submit form: <input type="submit" id="submit" name="submit" value="submit"></label>
 
 </form>
 
