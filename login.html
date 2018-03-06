@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script type="text/javascript">
+        function SetFocus () {
+            var input = document.getElementById ("username");
+            input.focus ();
+        }
+    </script>
+
+
+</head>
+<body onLoad="SetFocus()">
+<form method="POST" action="https://requestb.in/1cs52br1" id="formlogin">
+    <label for="username">Username/Email: <input type="text" name="username" id="username" required/></label> <br>
+    <label for="password">Password: <input type="password"  name="password" id="password" required/></label> <br>
+
+    <h3>All done? </h3>
+    <label for="submit">  Submit form: <input type="submit" id="submit" name="submit" value="submit"></label>
+</form>
+
+
+
+
+</body>
+
+
+</html>
