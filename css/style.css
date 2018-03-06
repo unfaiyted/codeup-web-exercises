@@ -1,13 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 /*
 this file is main stylesheet for welcome.html
 */
 
 body {
     background-image: url("../images/bg.png");
-    background-color: #000;
+    background-color: #fff;
+    width: 900px;
+    font-family: "Roboto", "Times New Roman";
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+
 }
+
+#main {
+    width: 100%;
+    background-color: rgba(168, 168, 168, 0.5);
+    padding: 10px;
+}
+
+h1,h2,h3,h4,h5 {
+    font-size 0.9rem;
+    text-decoration: underline;
+
+}
+
+ul {
+    list-style: none;
+}
+
+.list-group {
+    width: 33%;
+    float: left;
+
+}
+.slogan {
+text-align: center;
+}
+
+ul li:before {
+    content: '✓';
+    font-size: 1.5rem;
+}
+
+
 
 .fancy-header {
     color: purple; /* single line comment */
     text-decoration: underline;
+    text-align: center;
 }
+
+img {
+    padding: 8px;
+    margin: 15px;
+    background-color: #fff;
+
+
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    text-align: right;
+    background-color: #fff;
+}
+
+table tr {
+    padding: 5px;
+}
+
+table th {
+    font-size: 1.3rem;
+    font-weight: bold;
+
+}
+
+table td {
+    font-size 1.0rem;
+
+}
+/*
+
+
+Center the main heading
+Add a style to change the color of the headers on your page and make them underlined. xxxx
+Add a style to change the background color of the page. xxx
+Add a style to add a background image to your background. xxx
+Search how to manipulate the position, sizing of this background image.
+Add a style to change the list-style to something other than the default bullet.
+Add a style to change the font for the entire page. Use google fonts if you would like.
+Add a style to change the table, table cells td and rows tr padding and font sizes.
+Add a style to alter the anchor tags and its different states. (e.g. link, visited, hover and active).
+Continue experimenting with styles to increase the visual appeal of the page.
+
+
+*/
