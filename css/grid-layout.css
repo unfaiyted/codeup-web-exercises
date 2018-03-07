@@ -28,17 +28,48 @@ body, html {
 }
 
 
-.column.one-half {
+
+.column.two-thirds, .column.four-sixths
+{
+    width: 66.66%;
+    background-color: #7abcff;
+}
+
+.column.one-half, .column.two-fourths, .column.four-eighths, column.three-sixths {
     width: 50%;
     background-color: #7abcff;
 }
 
-.column.one-third {
+.column.one-third, column.two-sixths {
     width: 33.33%;
     background-color: #c7d2e2;
 }
 
-.column.one-fourth {
+.column.three-eighths {
+    width: 37.5%;
+    background-color: #af2b2b;
+}
+
+.column.five-eighths {
+    width: 62.5%;
+    background-color: #ffffff;
+}
+
+.column.three-fourths, .column.six-eighths {
+    width: 75%;
+    background-color: bisque;
+}
+.column.five-sixths {
+    width: 83.33%;
+    background-color: ghostwhite;
+}
+
+.column.seven-eighths {
+    width: 87.5%;
+    background-color: #e4bfff;
+}
+
+.column.one-fourth, .column.two-eighths {
     width: 25%;
     background-color: #60abf8;
 }
