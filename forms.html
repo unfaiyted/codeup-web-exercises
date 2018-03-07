@@ -56,10 +56,12 @@ What happens if you leave off the id attribute on a form input?
 
     <h3>Where did you hear about us?</h3>
 
-    <label for="foundus_1"> <input type="radio"  name="foundus_1" id="foundus_1" value="billboard"> Billboard</label> <br>
-    <label for="foundus_2"> <input type="radio" name="foundus_2" id="foundus_2" value="radio"> Radio Station </label> <br>
-    <label for="foundus_3"> <input type="radio"  name="foundus_3" id="foundus_3" value="internet">Internet Advertisement </label><br>
-    <label for="foundus_4"> <input type="radio"  name="foundus_4" id="foundus_4" value="other">Other </label> <br>
+    <lablel> <!-- Labels on radio do not need the for statement or the ID's  -->
+        <input type="radio"  name="foundus"  value="billboard"> Billboard <br>
+        <input type="radio" name="foundus"  value="radio"> Radio Station  <br>
+        <input type="radio"  name="foundus" value="internet">Internet Advertisement <br>
+        <input type="radio"  name="foundus"  value="other">Other <br>
+    </lablel>
 <!--
 
 -->
