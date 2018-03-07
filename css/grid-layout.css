@@ -84,6 +84,21 @@ body, html {
     background-color: #8c8b8b;
 }
 
+.column.offset-one-half {
+    margin-right: 50%;
+}
+
+.column.offset-one-fourth {
+    margin-right: 25%;
+}
+
+.column.offset-one-third {
+    margin-right: 33%;
+}
+
+.column.offset-two-third {
+    margin-right: 66%;
+}
 
 @media screen and (max-width:768px) {
     .column.one-third,
