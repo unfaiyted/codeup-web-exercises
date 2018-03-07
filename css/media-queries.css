@@ -38,7 +38,6 @@
     }
 
     nav  li {
-        width: 90%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 10px;
@@ -56,11 +55,9 @@
 
 
     .header-img {
-        width: 100%;
         text-align: center;
     }
     .header-img img {
-        width: 90%
     }
 
 
@@ -130,7 +127,6 @@
         text-align: left;
         font-size: 5vw;
         float: left;
-        width: 50%;
     }
 
 
@@ -157,11 +153,9 @@
     }
 
     .header-img {
-        width: 100%;
         text-align: center;
     }
     .header-img img {
-        width: 90%
     }
 
 
@@ -170,12 +164,10 @@
 
     }
     section.main {
-        width: 60%;
         float: left;
     }
 
     section.sub-section {
-        width: 25%;
         float: left;
 
     }
@@ -188,8 +180,6 @@
     }
 
     #social-media-links .social {
-        width: 50px;
-        height: 50px;
         padding: 10px;
         float: left;
     }
