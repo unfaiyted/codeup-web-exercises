@@ -2,8 +2,14 @@
 
 body, html {
     background-color: #F0F0F0;
+    margin: 0;
+    padding: 0;
 }
 
+.container
+{
+    width: 90%;
+}
 
 p {
     font-family: 'Abel', sans-serif;
@@ -15,9 +21,11 @@ h1, h2, h3, h4, h5{
 }
 h1 {
     font-size: 64px;
+    margin: 30px;
 }
 h2 {
     font-size: 48px;
+    margin: 35px;
 }
 h3 {
     font-size: 40px;
@@ -32,19 +40,19 @@ h5{
 }
 
 .red {
-    color: #E6563B;
+    background-color: #E6563B;
 }
 
 .orange {
-    color: #EB9D3A;
+    background-color: #EB9D3A;
 }
 
 .green {
-    color: #7CB06C;
+    background-color: #7CB06C;
 }
 
 .teal {
-    color: #00ABA9;
+    background-color: #00ABA9;
 }
 
 .white {
@@ -67,6 +75,7 @@ h5{
 
 .logo-text {
     font-family: 'Abel', sans-serif;
+    font-size: 42px;
 }
 
 .icon {
@@ -76,12 +85,15 @@ h5{
 
 
 .btn-circle.btn-xl {
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     padding: 10px 16px;
-    border-radius: 35px;
+    border-radius: 75px;
     font-size: 24px;
     line-height: 1.33;
+    border: 8px solid #fff;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
 }
 
 .btn-circle {
@@ -92,17 +104,34 @@ h5{
     text-align: center;
     font-size: 12px;
     line-height: 1.42857;
+    color: #fff;
 }
 
 
 #header a {
     font-family: 'Abel', sans-serif;
     text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
 }
+
+#header a:link, #header a:visited {
+    font-family: 'Abel', sans-serif;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+
+
+}
+
+
+
 
 #header {
     background-color: #FFF;
     border-top: 30px solid #F0F0F0;
     border-bottom: 30px solid #F0F0F0;
     height: 115px;
+    margin: 0;
+    padding:0;
 }
