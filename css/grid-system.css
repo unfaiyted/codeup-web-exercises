@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Anton');
+
+body, html {
+    background-color: #F0F0F0;
+}
+
+
+p {
+    font-family: 'Abel', sans-serif;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'Anton', sans-serif;
+
+}
+h1 {
+    font-size: 64px;
+}
+h2 {
+    font-size: 48px;
+}
+h3 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 32px;
+}
+
+h5{
+    font-size: 28px;
+}
+
+.red {
+    color: #E6563B;
+}
+
+.orange {
+    color: #EB9D3A;
+}
+
+.green {
+    color: #7CB06C;
+}
+
+.teal {
+    color: #00ABA9;
+}
+
+.white {
+    color: #F0F0F0;
+}
+
+.bg-white {
+    background-color: #f0f0f0;
+}
+
+.grey {
+    color: #E6E6E6;
+}
+
+
+.logo {
+    height: 105px;
+    width: 105px;
+}
+
+.logo-text {
+    font-family: 'Abel', sans-serif;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+
+#header a {
+    font-family: 'Abel', sans-serif;
+    text-transform: uppercase;
+}
+
+#header {
+    background-color: #FFF;
+    border-top: 30px solid #F0F0F0;
+    border-bottom: 30px solid #F0F0F0;
+    height: 115px;
+}

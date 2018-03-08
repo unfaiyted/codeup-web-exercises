@@ -37,7 +37,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="material-icons">people</i>Login</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 align-middle" type="submit"><i class="material-icons align-middle">people</i>
+            <span class="align-middle">Login</span></button>
         </form>
     </div>
 </nav>
@@ -65,13 +66,14 @@
     </ul>
 
 
-    <!-- Cards -->
-    <div class="card m-3" id="order-size">
+    <!-- Size and Crust -->
+    <div class="card m-3" id="pizza-size">
 
         <div class="card-header bg-primary text-white">
             Choose Size and Crust
         </div>
 
+        <!-- Hand tossed -->
         <ul class="list-group p-3">
         <li class="list-group-item list-group-item-secondary">Hand Tossed</li>
         <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
@@ -85,7 +87,7 @@
         </li>
         </ul>
 
-
+        <!--  Crispy Thin -->
         <ul class="list-group p-3">
             <li class="list-group-item list-group-item-secondary">Crispy Thin</li>
             <li class="list-group-item">Thin enough for optimal crispy to crunchy ratio.</li>
@@ -99,10 +101,135 @@
             </li>
         </ul>
 
-    </div>
-
-
         <div class="card-footer text-right"> <a href="#" class="btn btn-primary">Next step ></a></div>
+    </div>
+    <!-- End Size and Crust -->
+
+
+
+    <!-- Cheese and Sauce  -->
+    <div class="card m-3" id="pizza-sauce">
+
+        <div class="card-header bg-primary text-white">
+            Choose Cheese and Sauce
+        </div>
+
+        <!-- Cheese -->
+        <ul class="list-group p-3">
+            <li class="list-group-item list-group-item-secondary">Cheese</li>
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="cheese-vol">How Much?</label>
+                    <select class="form-control" id="cheese-vol">
+                        <option>Light</option>
+                        <option>Normal</option>
+                        <option>Extra</option>
+                        <option>Double</option>
+                    </select>
+                </div>
+            </li>
+
+        </ul>
+
+        <!--  Sauce -->
+        <ul class="list-group p-3">
+            <li class="list-group-item list-group-item-secondary">Sauce</li>
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="sauce-type">What Type?</label>
+                    <select class="form-control" id="sauce-type">
+                        <option>Tomato sauce</option>
+                        <option>Marinara sauce</option>
+                        <option>BBQ Sauce</option>
+                        <option>Alfredo Sauce</option>
+                    </select>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="form-group">
+                    <label for="sauce-vol">How Much?</label>
+                    <select class="form-control" id="sauce-vol">
+                        <option>Light</option>
+                        <option>Normal</option>
+                        <option>Extra</option>
+
+                    </select>
+                </div>
+            </li>
+        </ul>
+
+        <div class="card-footer text-right">
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary">< Previous step</button>
+                <button type="button" class="btn btn-primary">Next step ></button>
+
+            </div>
+
+    </div>
+    <!-- End Cheese and Sauce -->
+
+
+
+
+    <!-- Choose Toppings  -->
+    <div class="card m-3" id="pizza-toppings">
+
+        <div class="card-header bg-primary text-white">
+            Choose Cheese and Sauce
+        </div>
+
+        <!-- Meats -->
+        <ul class="list-group p-3">
+            <li class="list-group-item list-group-item-secondary">Choose Meats</li>
+            <li class="list-group-item">
+                    <input  type="checkbox" value="beef" name="beef" id="beef">
+                    <label class="form-check-label" for="beef"> Beef</label>
+            </li>
+            <li class="list-group-item">
+                <input  type="checkbox" value="ham" name="ham" id="ham">
+                <label class="form-check-label" for="ham"> Ham</label>
+            </li>
+            <li class="list-group-item">
+                <input  type="checkbox" value="philly" name="philly" id="philly">
+                <label class="form-check-label" for="philly"> Philly</label>
+            </li>
+            <li class="list-group-item">
+                <input  type="checkbox" value="bacon" name="bacon" id="bacon">
+                <label class="form-check-label" for="bacon"> Bacon</label>
+            </li>
+
+        </ul>
+
+        <!--  Non-Meats -->
+        <ul class="list-group p-3">
+            <li class="list-group-item list-group-item-secondary">Choose Non-Meats</li>
+            <li class="list-group-item">
+                <input  type="checkbox" value="green-pep" name="green-pep" id="green-pep">
+                <label class="form-check-label" for="green-pep"> Green Peppers</label>
+            </li>
+            <li class="list-group-item">
+                <input  type="checkbox" value="mushroom" name="mushroom" id="mushroom">
+                <label class="form-check-label" for="mushroom"> Mushrooms</label>
+            </li>
+            <li class="list-group-item">
+                <input  type="checkbox" value="onions" name="onions" id="onions">
+                <label class="form-check-label" for="onions"> Onions</label>
+            </li>
+            <li class="list-group-item">
+                <input  type="checkbox" value="jalepeno-pepper" name="jalepeno-pepper" id="jalepeno-pepper">
+                <label class="form-check-label" for="jalepeno-pepper"> Jalapeno  Peppers</label>
+            </li>
+
+        </ul>
+
+        <div class="card-footer text-right">
+            <a href="#" class="btn btn-primary align-middle">Checkout <i class="material-icons align-middle">payment</i></a></div>
+    </div>
+    <!-- End Cheese and Sauce -->
+
+
+
     </div>
 
 
