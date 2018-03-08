@@ -26,8 +26,6 @@ body, html {
     box-sizing: border-box;
 }
 
-
-
 .column.two-thirds, .column.four-sixths
 {
     width: 66.66%;
@@ -89,16 +87,20 @@ body, html {
 }
 
 @media screen and (max-width:768px) {
-    .column.one-third,
-    .column.one-half {
+    .column.one-third, .column.three-fourths, .column.six-eighths, .column.five-eighths,
+    .column.one-half, .column.two-fourths, .column.three-sixths, .column.four-eighths, .column.two-thirds {
         width: 100%;
     }
 }
 
 @media screen and (max-width:500px) {
-    .column.one-fourth {
+    .column.one-fourth, .column.two-eighths {
         width: 100%;
     }
+    .column.one-eighth {
+        width:25%;
+    }
+
 }
 
 @media screen and (max-width:400px) {

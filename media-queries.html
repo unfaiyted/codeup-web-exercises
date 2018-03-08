@@ -8,36 +8,74 @@
     <link rel="stylesheet" href="css/grid-layout.css">
 </head>
 <body>
-    <div class="alert-info hidden-on-desktop">
-        <a href="#main">Skip to main content</a>
-    </div>
-    <h1>Company</h1>
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="header-img">
-        <img src="http://lorempixel.com/g/900/400" alt="">
-    </div>
-    <section id="main" class="main">
-        <h2>Main Section</h2>
-        <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
-    </section>
-    <section class="sub-section">
-        <h2>Sub-section</h2>
-        <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
-    </section>
+    <div class="container">
+
+
+        <div class="row">
+        <div class="alert-info hidden-on-desktop ">
+            <a href="#main">Skip to main content</a>
+        </div>
+
+        <div class="row">
+
+        <nav>
+                <div class="column one-half">
+                    <h1>Company</h1>
+                </div>
+
+                 <div class="column one-eighth nav-links"><a href="#">Home</a></div>
+                 <div class="column one-eighth nav-links"><a href="#">About</a></div>
+                 <div class="column one-eighth nav-links"><a href="#">Work</a></div>
+                 <div class="column one-eighth nav-links"><a href="#">Contact</a></div>
+
+        </nav>
+
+        </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="column one-fourth">&nbsp;</div>
+                <div class="column one-half">
+                    <img src="https://picsum.photos/900/400?image=0" alt="" class="header-img">
+                </div>
+            <div class="column one-fourth">&nbsp;</div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="column two-thirds">
+            <section id="main" class="main">
+                <h2>Main Section</h2>
+                <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
+            </section>
+            </div>
+            <div class="column one-third">
+            <section class="sub-section">
+                <h2>Sub-section</h2>
+                <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
+            </section>
+            </div>
+        </div>
+
+
     <footer>
-        <p>(c) 2017 All rights reserved</p>
-        <div id="social-media-links">
-            <a href="http://www.twitter.com" class="social twitter"></a>
-            <a href="http://www.facebook.com"class="social fb"></a>
-            <a href="http://www.instagram.com" class="social instagram"></a>
+        <div class="row">
+            <div class="column one-third offset-one-third">
+            <p>(c) 2017 All rights reserved</p>
+            </div>
+            <div class="column one-third">
+            <div id="social-media-links">
+                <a href="http://www.twitter.com" class="social twitter"></a>
+                <a href="http://www.facebook.com"class="social fb"></a>
+                <a href="http://www.instagram.com" class="social instagram"></a>
+            </div>
+
         </div>
     </footer>
+
+    </div>
 </body>
 </html>
