@@ -49,8 +49,6 @@
         text-align: center;
         width: 100%;
     }
-    .header-img img {
-    }
 
 
     section {
@@ -60,19 +58,18 @@
     footer p {
         float: left;
     }
-    #social-media-links   {
-        float: right;
-    }
+    
 
     #social-media-links .social {
         width: 25px;
         height: 25px;
         padding: 10px;
-        float: left;
+        display: inline-block;
     }
 
     #social-media-links a {
         display: block;
+
     }
 
     .twitter {
@@ -161,12 +158,13 @@
         float: left;
     }
     #social-media-links   {
-        float: right;
+        text-align: center;
     }
 
     #social-media-links .social {
         padding: 10px;
-        float: left;
+        display: inline-block;
+        text-align: center;
     }
 
     #social-media-links a {

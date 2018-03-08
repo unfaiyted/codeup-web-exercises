@@ -100,6 +100,10 @@ body, html {
     .column.one-eighth {
         width:25%;
     }
+    /* hide empty spacer column when not needed, low res*/
+    .column.one-eighth:empty {
+        display:none;
+    }
 
 }
 
