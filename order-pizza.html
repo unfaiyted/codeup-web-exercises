@@ -7,6 +7,7 @@
     <title>Pizza Me - We knead your dough. </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
     <!-- Your custom styles go here -->
 
 </head>
@@ -43,42 +44,67 @@
 
 <div class="container">
 
+
     <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
+        <h1 class="display-4">Welcome to Pizza World!</h1>
     </div>
+
+
+    <h2 class="display-5">Build your own pizza!</h2>
 
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <button type="button" class="btn btn-primary">
-                Notifications <span class="badge badge-light">4</span>
-            </button>
-            <a class="nav-link active" href="#">Active</a>
+            <a class="nav-link active" href="#"><span class="badge badge-secondary">1</span> Size and crust</a>
         </li>
         <li class="nav-item">
-            <button type="button" class="btn btn-primary">
-                Notifications <span class="badge badge-light">4</span>
-            </button>
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#"> <span class="badge badge-secondary">2</span> Cheese and Sauce</a>
         </li>
         <li class="nav-item">
-            <button type="button" class="btn btn-primary">
-                Notifications <span class="badge badge-light">4</span>
-            </button>
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <button type="button" class="btn btn-primary">
-            Notifications <span class="badge badge-light">4</span>
-        </button>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link" href="#"> <span class="badge badge-secondary">3</span> Toppings</a>
         </li>
     </ul>
+
+
+    <!-- Cards -->
+    <div class="card m-3" id="order-size">
+
+        <div class="card-header bg-primary text-white">
+            Choose Size and Crust
+        </div>
+
+        <ul class="list-group p-3">
+        <li class="list-group-item list-group-item-secondary">Hand Tossed</li>
+        <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+        <li class="list-group-item">
+            <input type="radio" name="pizza-size" value="ht-small" id="ht-small" aria-label="Small Hand Tossed">
+            <label for="ht-small"> Small (10")</label>
+        </li>
+        <li class="list-group-item">
+            <input type="radio" name="pizza-size" value="ht-med"  id="ht-med" aria-label="Medium Hand Tossed">
+            <label for="ht-med"> Medium (12")</label>
+        </li>
+        </ul>
+
+
+        <ul class="list-group p-3">
+            <li class="list-group-item list-group-item-secondary">Crispy Thin</li>
+            <li class="list-group-item">Thin enough for optimal crispy to crunchy ratio.</li>
+            <li class="list-group-item">
+                <input type="radio" name="pizza-size" value="thin-med" id="thin-med" aria-label="Medium Thin">
+                <label for="thin-med"> Medium (12")</label>
+            </li>
+            <li class="list-group-item">
+                <input type="radio" name="pizza-size" value="thin-large" id="thin-large" aria-label="Large Thin">
+                <label for="thin-large"> Large (14")</label>
+            </li>
+        </ul>
+
+    </div>
+
+
+        <div class="card-footer text-right"> <a href="#" class="btn btn-primary">Next step ></a></div>
+    </div>
+
 
 </div>
 
