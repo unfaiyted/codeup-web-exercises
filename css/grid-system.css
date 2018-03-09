@@ -97,14 +97,16 @@ h5{
 }
 
 .btn-circle {
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
     padding: 6px 0px;
-    border-radius: 15px;
+    border-radius: 9px;
     text-align: center;
-    font-size: 12px;
-    line-height: 1.42857;
-    color: #fff;
+    font-size: 10px;
+    line-height: 0.7;
+    font-family: 'Anton', sans-serif;
+    color: #000;
+    margin: 3px;
 }
 
 
@@ -125,8 +127,6 @@ h5{
 }
 
 
-
-
 #header {
     background-color: #FFF;
     border-top: 30px solid #F0F0F0;
@@ -134,4 +134,32 @@ h5{
     height: 115px;
     margin: 0;
     padding:0;
+}
+
+
+.work-image img {
+    width:  100%;
+    border: 10px solid #e6e6e6;
+}
+
+.work-feature {
+    font-family: 'Abel', sans-serif;
+    text-transform: uppercase;
+}
+
+
+.last {
+       height: 100px;
+    }
+
+
+.last h4 {
+    margin:0;
+    margin-top: 10px;
+    justify-content: center;
+}
+.last img {
+
+    height: 100%;
+    border: 2px solid #e6e6e6;
 }
