@@ -90,8 +90,8 @@ function calculateTip(percentage, total) {
  */
 
 var bill = prompt("Bill amount: ");
-var percent = prompt("Tip %:");
-alert("$" + calculateTip(percent,bill));
+var percent = prompt("Tip % (0.1-1.0):");
+alert("Tip Amount $" + calculateTip(percent,bill));
 
 
 /**
