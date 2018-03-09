@@ -6,7 +6,6 @@ body, html {
     padding: 0;
 }
 
-
 p {
     font-family: 'Abel', sans-serif;
 }
@@ -148,8 +147,6 @@ h5 {
 }
 
 
-
-
 .last img {
     width: 50px;
     height: 50px;
@@ -198,9 +195,6 @@ h5 {
 }
 
 
-
-
-
 /* Only for small */
 @media (max-width: 576px) {
 
@@ -209,7 +203,6 @@ h5 {
         width: 100%;
         text-align: center;
     }
-
 
     .align-center-xs {
         text-align: center;
@@ -220,7 +213,6 @@ h5 {
         font-size: 4vw;
     }
 
-
 }
 
 /*// Small devices (landscape phones, 576px and up)*/
@@ -228,29 +220,21 @@ h5 {
 
         .ml-auto-sm {
              margin-left: auto;
-
          }
-
         .align-center-sm {
             text-align: center;
             width: 100%;
         }
 
-
         .work-feature.project {
-
             font-size: 1.60vw;
         }
-
-
-
     }
 
 /*// Medium devices (tablets, 768px and up)*/
     @media (min-width: 768px) {
         .ml-auto-md {
             margin-left: auto;
-
         }
 
         .container {
@@ -258,8 +242,6 @@ h5 {
             margin: 10px;
             max-width: 990px;
         }
-
-
 
         .align-center-md {
             text-align: center;
@@ -269,13 +251,10 @@ h5 {
             text-align: left;
         }
 
-
-
         .work-feature.project {
 
             font-size: 1.40vw;
         }
-
 
     }
 
@@ -291,10 +270,8 @@ h5 {
         }
 
         .work-feature.project {
-
             font-size: 1.5vw;
         }
-
 
         .container {
             width: 100%;
