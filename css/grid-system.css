@@ -71,7 +71,7 @@ h5 {
 
 .logo-text {
     font-family: 'Abel', sans-serif;
-    font-size: 42px;
+    font-size: 50px;
     text-align: center;
     display: block;
 }
@@ -92,7 +92,7 @@ h5 {
     border: 8px solid #fff;
     color: #fff;
     font-family: 'Anton', sans-serif;
-    margin-right: 10px;
+    margin-right: 12px;
 }
 
 .btn-circle {
@@ -102,7 +102,7 @@ h5 {
     border-radius: 9px;
     text-align: center;
     font-size: 10px;
-    line-height: 0.7;
+    line-height: 0.4;
     font-family: 'Anton', sans-serif;
     color: #000;
     margin: 4px;
@@ -114,6 +114,7 @@ h5 {
     text-transform: uppercase;
     color: #000;
     text-decoration: none;
+
 }
 
 #header a:link, #header a:visited {
@@ -131,10 +132,8 @@ h5 {
     margin: 0;
     padding:0;
     z-index: 1;
-    position: relative;`
+    position: relative;
 }
-
-
 
 
 .work-image img {
@@ -145,19 +144,12 @@ h5 {
 .work-feature {
     font-family: 'Abel', sans-serif;
     text-transform: uppercase;
+
 }
 
 
-/*.last {*/
-       /*height: 100px;*/
-    /*}*/
 
 
-/*.last h4 {*/
-    /*margin:0;*/
-    /*margin-top: 10px;*/
-    /*justify-content: center;*/
-/*}*/
 .last img {
     width: 50px;
     height: 50px;
@@ -185,7 +177,10 @@ h5 {
 }
 
 
-
+.sub-container {
+    margin: 0px;
+    padding: 0px
+}
 
 
 .bg-container {
@@ -204,9 +199,9 @@ h5 {
 
 
 
-/*// Small devices (landscape phones, 576px and up)*/
 
 
+/* Only for small */
 @media (max-width: 576px) {
 
     .wrap-it {
@@ -215,23 +210,37 @@ h5 {
         text-align: center;
     }
 
-    break{
-        flex-basis: 100%;
-        width: 0px;
-        height: 0px;
-        overflow: hidden;
+
+    .align-center-xs {
+        text-align: center;
+        width: 100%;
     }
+
+    #header a {
+        font-size: 4vw;
+    }
+
 
 }
 
-
-
+/*// Small devices (landscape phones, 576px and up)*/
     @media (min-width: 576px) {
 
         .ml-auto-sm {
              margin-left: auto;
 
          }
+
+        .align-center-sm {
+            text-align: center;
+            width: 100%;
+        }
+
+
+        .work-feature.project {
+
+            font-size: 1.60vw;
+        }
 
 
 
@@ -244,6 +253,30 @@ h5 {
 
         }
 
+        .container {
+            width: 100%;
+            margin: 10px;
+            max-width: 990px;
+        }
+
+
+
+        .align-center-md {
+            text-align: center;
+        }
+
+        .align-left-md {
+            text-align: left;
+        }
+
+
+
+        .work-feature.project {
+
+            font-size: 1.40vw;
+        }
+
+
     }
 
 /*// Large devices (desktops, 992px and up)*/
@@ -251,6 +284,22 @@ h5 {
         .ml-auto-lg {
             margin-left: auto;
 
+        }
+
+        .align-left-lg {
+            text-align: left;
+        }
+
+        .work-feature.project {
+
+            font-size: 1.5vw;
+        }
+
+
+        .container {
+            width: 100%;
+            margin: 10px;
+            max-width: 1190px;
         }
 
     }
@@ -262,6 +311,10 @@ h5 {
 
         }
 
-
+        .container {
+            width: 100%;
+            margin: 10px;
+            max-width: 1200px;
+        }
 
     }
