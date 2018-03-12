@@ -155,7 +155,6 @@ promptColor();
 /* ########################################################################## */
 
 /**
- * TODO:
  * Suppose there's a promotion in Walmart, each customer is given a randomly
  * generated "lucky number" between 0 and 5. If your lucky number is 0 you have
  * no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
@@ -222,9 +221,6 @@ function userTotal() {
     alert("Price before discount: " + input
          +  "\nPrice after discount: " + calculateTotal(luckyNumber, input) );
 
-
 }
-
-
 
 userTotal();
