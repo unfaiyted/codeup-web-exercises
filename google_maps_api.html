@@ -73,6 +73,7 @@
     "use strict";
 
     var mapOptions = [{
+        mapid: 'map-zoom-5',
         zoom: 5,
         center: {
             lat:   29.525760,
@@ -80,6 +81,7 @@
 
         }
     }, {
+        mapid: 'map-zoom-15',
         zoom: 15,
         center: {
             lat:   29.525760,
@@ -87,6 +89,7 @@
 
         }
     }, {
+        mapid: 'map-zoom-20',
         zoom: 20,
         center: {
             lat:   29.525760,
@@ -94,6 +97,7 @@
 
         }
     }, {
+        mapid: 'map-original',
         zoom: 18,
         center: {
             lat:   29.525760,
@@ -106,12 +110,21 @@
     console.log(mapOptions);
 
     // Render the map
-        var maps = {};
+        var maps = [];
 
-        maps[0] = new google.maps.Map(document.getElementById("map-original"), mapOptions[3]);
-        maps[1] = new google.maps.Map(document.getElementById("map-zoom-5"), mapOptions[0]);
-        maps[2] = new google.maps.Map(document.getElementById("map-zoom-15"), mapOptions[1]);
-        maps[3] = new google.maps.Map(document.getElementById("map-zoom-20"), mapOptions[2]);
+
+
+        mapOptions.forEach(function(e) {
+            console.log(e.mapid);
+           maps.push(new google.maps.Map(document.getElementById(e.mapid), e));
+
+        });
+
+
+        // maps[0] = new google.maps.Map(document.getElementById(mapOptions[3].mapid), mapOptions[3]);
+        // maps[1] = new google.maps.Map(document.getElementById(mapOptions[0].mapid), mapOptions[0]);
+        // maps[2] = new google.maps.Map(document.getElementById("map-zoom-15"), mapOptions[1]);
+        // maps[3] = new google.maps.Map(document.getElementById("map-zoom-20"), mapOptions[2]);
 
     // Set our address to geocode
     var address = "9425 Fredericksburg Rd, San Antonio, TX 78240";
@@ -125,16 +138,25 @@
     // Add the marker to our existing map
     var marker = new google.maps.Marker({
         position: restaurant,
-        map: maps[0]
+        map: maps[0],
+        animation: google.maps.Animation.DROP
     });
 
 
-    var infowindow = new google.maps.InfoWindow({
-        content: "Kohinoor, butter chicken!!!"
+    window.google.maps.event.addListener(marker, 'click', function () {
+        var infowindow = new google.maps.InfoWindow({
+            content: "<strong>Kohinoor</strong><br>" +
+            "<em>Family-owned eatery featuring a range of classic<br> Pakistani dishes in a spacious, casual dining room.</em>" +
+            "<br><a href=\"http://kohinoorsa.com\">kohinoorsa.com</a> "
+        });
+
+
+        // Open the window using our map and marker
+        infowindow.open(maps[0], marker);
     });
 
-    // Open the window using our map and marker
-    infowindow.open(maps[0], marker);
+
+
 
     // Geocode our address
        geocoder.geocode({ "address": address }, function(results, status) {
