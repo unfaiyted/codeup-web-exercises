@@ -16,24 +16,52 @@
         #map-original {
             width: 800px;
             height: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
 
         #map-zoom-5, #map-zoom-15, #map-zoom-20 {
-            width: 450px;
-            height: 300px;
+          width: 100%;
+           height: 350px;
         }
     </style>
 </head>
 <body>
 
 
+<div class="container">
 
-<div id="map-original"></div>
+    <div class="row">
+        <div class="col-12 p-2 m-2">
+            <h1 class="text-center">Google Maps API</h1>
+        </div>
+    </div>
 
-<div id="map-zoom-5"></div>
-<div id="map-zoom-15"></div>
-<div id="map-zoom-20"></div>
+
+<div class="row">
+    <div class="col-12 p-2 m-2">
+        <div id="map-original"></div>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-12 col-md-4 ">
+            <div id="map-zoom-5"></div>
+            <span class="">Zoom Level #5</span>
+        </div>
+        <div class="col-12 col-md-4">
+            <div id="map-zoom-15"></div>
+            <span>Zoom Level #15</span>
+        </div>
+        <div class="col-12 col-md-4">
+            <div id="map-zoom-20"></div>
+            <span>Zoom Level #20</span>
+        </div>
+    </div>
+
+
+</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp8riwMMofm7Djpcl1TB8z534HQg3pLeM"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -66,7 +94,7 @@
 
         }
     }, {
-        zoom: 10,
+        zoom: 18,
         center: {
             lat:   29.525760,
             lng: -98.5755203
@@ -90,6 +118,23 @@
 
     // Init geocoder object
     var geocoder = new google.maps.Geocoder();
+
+
+    var restaurant = { lat: 29.525760, lng: -98.5755203};
+
+    // Add the marker to our existing map
+    var marker = new google.maps.Marker({
+        position: restaurant,
+        map: maps[0]
+    });
+
+
+    var infowindow = new google.maps.InfoWindow({
+        content: "Kohinoor, butter chicken!!!"
+    });
+
+    // Open the window using our map and marker
+    infowindow.open(maps[0], marker);
 
     // Geocode our address
        geocoder.geocode({ "address": address }, function(results, status) {
