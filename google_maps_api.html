@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Do you know the way?</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
 
     <!--- GOOGLE MAPS API KEY
@@ -34,6 +36,10 @@
 <div id="map-zoom-20"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp8riwMMofm7Djpcl1TB8z534HQg3pLeM"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Your custom JS goes here -->
 
 <script>
     "use strict";
@@ -72,16 +78,18 @@
     console.log(mapOptions);
 
     // Render the map
-        var map0 = new google.maps.Map(document.getElementById("map-original"), mapOptions[3]);
-        var map1 = new google.maps.Map(document.getElementById("map-zoom-5"), mapOptions[0]);
-        var map2 = new google.maps.Map(document.getElementById("map-zoom-15"), mapOptions[1]);
-        var map3 = new google.maps.Map(document.getElementById("map-zoom-20"), mapOptions[2]);
+        var maps = {};
+
+        maps[0] = new google.maps.Map(document.getElementById("map-original"), mapOptions[3]);
+        maps[1] = new google.maps.Map(document.getElementById("map-zoom-5"), mapOptions[0]);
+        maps[2] = new google.maps.Map(document.getElementById("map-zoom-15"), mapOptions[1]);
+        maps[3] = new google.maps.Map(document.getElementById("map-zoom-20"), mapOptions[2]);
 
     // Set our address to geocode
     var address = "9425 Fredericksburg Rd, San Antonio, TX 78240";
 
     // Init geocoder object
-       var geocoder = new google.maps.Geocoder();
+    var geocoder = new google.maps.Geocoder();
 
     // Geocode our address
        geocoder.geocode({ "address": address }, function(results, status) {
@@ -90,11 +98,12 @@
        if (status == google.maps.GeocoderStatus.OK) {
 
     // Recenter the map over the address
-    map.setCenter(results[0].geometry.location);
-    } else {
 
-      // Show an error message with the status if our request fails
-      alert("Geocoding was not successful - STATUS: " + status);
+    for(var i = 0; i < maps.length; i++) {
+               maps[i].setCenter(results[0].geometry.location);
+           }
+    } else {
+        alert("Geocoding was not successful - STATUS: " + status);
       }
     });
 
