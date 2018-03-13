@@ -10,14 +10,15 @@
     <!--- GOOGLE MAPS API KEY
           Generate a map that shows the city with your favorite restaurant using geocoding.
     -->
-
-
     <style type="text/css">
         #map-first {
             width: 800px;
             height: 600px;
             margin-left: auto;
             margin-right: auto;
+        }
+        span {
+            width: 100%;
         }
 
 
@@ -32,40 +33,40 @@
 
 <div class="container">
 
-    <div class="row">
+    <div class="row p-3">
         <div class="col-12 p-2 m-2">
             <h1 class="text-center">Dane's Random 5 Places He Likes</h1>
         </div>
     </div>
 
 
-<div class="row">
+<div class="row p-2">
     <div class="col-12 p-2 m-2">
         <div id="map-first"></div>
     </div>
 </div>
 
-    <div class="row">
+    <div class="row p-2">
         <div class="col-12 col-md-6 ">
             <div id="map-second"></div>
-            <span class="">2nd Place</span>
+
         </div>
         <div class="col-12 col-md-6">
             <div id="map-third"></div>
-            <span>3rd Place</span>
+
         </div>
     </div>
 
-    <div class="row">
+    <div class="row p-2">
 
         <div class="col-12 col-md-6">
             <div id="map-fourth"></div>
-            <span>4th Place</span>
+
         </div>
 
             <div class="col-12 col-md-6">
                 <div id="map-fifth"></div>
-                <span>5th Place</span>
+
             </div>
     </div>
 
@@ -158,12 +159,12 @@
             "<br><a href=\"http://texaspride.com\">texaspride.com</a> ",
             zoom: 18,
             center: {
-                lat:   29.3935069,
-                lng:-98.2397353
+                lat:   29.393562,
+                lng:-98.2389166,
             },
             restaurant: {
-                lat:  29.3935069,
-                lng: -98.2397353
+                lat:  29.393562,
+                lng: -98.2389166,
             }
         }
     ];
@@ -214,58 +215,7 @@
             });
 
 
-
-
-            //
-            //
-            // window.google.maps.event.addListener(markers[markers.length-1], 'click', function () {
-            //
-            // });
-
-
-
-
-
-
-        console.log(infoWindows);
-
-
-
-
         });
-
-
-    // // Set our address to geocode
-    // var address = "9425 Fredericksburg Rd, San Antonio, TX 78240";
-    //
-    // // Init geocoder object
-    // var geocoder = new google.maps.Geocoder();
-    //
-    //
-    // var restaurant = { lat: 29.525760, lng: -98.5755203};
-    //
-    // // Add the marker to our existing map
-    // var marker = new google.maps.Marker({
-    //     position: restaurant,
-    //     map: maps[0],
-    //     animation: google.maps.Animation.DROP
-    // });
-
-
-    // window.google.maps.event.addListener(marker, 'click', function () {
-    //     var infowindow = new google.maps.InfoWindow({
-    //         content: "<strong>Kohinoor</strong><br>" +
-    //         "<em>Family-owned eatery featuring a range of classic<br> Pakistani dishes in a spacious, casual dining room.</em>" +
-    //         "<br><a href=\"http://kohinoorsa.com\">kohinoorsa.com</a> "
-    //     });
-    //
-    //
-    //     // Open the window using our map and marker
-    //     infowindow.open(maps[0], marker);
-    // });
-
-
-    // Geocode our address
 
 
 </script>
