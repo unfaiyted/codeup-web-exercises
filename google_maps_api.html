@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do you know the way?</title>
+    <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+
+    <!--- GOOGLE MAPS API KEY
+          Generate a map that shows the city with your favorite restaurant using geocoding.
+    -->
+
+
+    <style type="text/css">
+        #map-zoom-5, #map-zoom-15, #map-zoom-20 {
+            width: 500px;
+            height: 450px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div id="map-zoom-5"></div>
+<div id="map-zoom-15"></div>
+<div id="map-zoom-20"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp8riwMMofm7Djpcl1TB8z534HQg3pLeM"></script>
+
+<script>
+    "use strict";
+
+    var mapOptions = [{
+        zoom: 21,
+        center: {
+            lat:   29.525760,
+            lng: -98.5755203
+
+        },
+    }, {
+        zoom: 5,
+        center: {
+            lat:   29.525760,
+            lng: -98.5755203
+
+        },
+    }];
+
+    console.log(mapOptions);
+
+    // Render the map
+        var map = new google.maps.Map(document.getElementById("map-zoom-5"), mapOptions[0]);
+        var map2 = new google.maps.Map(document.getElementById("map-zoom-15"), mapOptions[1]);
+        var map3 = new google.maps.Map(document.getElementById("map-zoom-20"), mapOptions[2]);
+
+    // Set our address to geocode
+    var address = "9425 Fredericksburg Rd, San Antonio, TX 78240";
+
+    // Init geocoder object
+       var geocoder = new google.maps.Geocoder();
+
+    // Geocode our address
+       geocoder.geocode({ "address": address }, function(results, status) {
+
+    // Check for a successful result
+       if (status == google.maps.GeocoderStatus.OK) {
+
+    // Recenter the map over the address
+    map.setCenter(results[0].geometry.location);
+    } else {
+
+      // Show an error message with the status if our request fails
+      alert("Geocoding was not successful - STATUS: " + status);
+      }
+    });
+
+</script>
+
+</body>
+</html>
