@@ -13,7 +13,7 @@
 
 
     <style type="text/css">
-        #map-original {
+        #map-first {
             width: 800px;
             height: 600px;
             margin-left: auto;
@@ -21,7 +21,7 @@
         }
 
 
-        #map-zoom-5, #map-zoom-15, #map-zoom-20 {
+        #map-second, #map-third, #map-fourth, #map-fifth {
           width: 100%;
            height: 350px;
         }
@@ -34,30 +34,39 @@
 
     <div class="row">
         <div class="col-12 p-2 m-2">
-            <h1 class="text-center">Google Maps API</h1>
+            <h1 class="text-center">Dane's Random 5 Places He Likes</h1>
         </div>
     </div>
 
 
 <div class="row">
     <div class="col-12 p-2 m-2">
-        <div id="map-original"></div>
+        <div id="map-first"></div>
     </div>
 </div>
 
     <div class="row">
-        <div class="col-12 col-md-4 ">
-            <div id="map-zoom-5"></div>
-            <span class="">Zoom Level #5</span>
+        <div class="col-12 col-md-6 ">
+            <div id="map-second"></div>
+            <span class="">2nd Place</span>
         </div>
-        <div class="col-12 col-md-4">
-            <div id="map-zoom-15"></div>
-            <span>Zoom Level #15</span>
+        <div class="col-12 col-md-6">
+            <div id="map-third"></div>
+            <span>3rd Place</span>
         </div>
-        <div class="col-12 col-md-4">
-            <div id="map-zoom-20"></div>
-            <span>Zoom Level #20</span>
+    </div>
+
+    <div class="row">
+
+        <div class="col-12 col-md-6">
+            <div id="map-fourth"></div>
+            <span>4th Place</span>
         </div>
+
+            <div class="col-12 col-md-6">
+                <div id="map-fifth"></div>
+                <span>5th Place</span>
+            </div>
     </div>
 
 
@@ -73,106 +82,191 @@
     "use strict";
 
     var mapOptions = [{
-        mapid: 'map-zoom-5',
-        zoom: 5,
-        center: {
-            lat:   29.525760,
-            lng: -98.5755203
-
-        }
-    }, {
-        mapid: 'map-zoom-15',
-        zoom: 15,
-        center: {
-            lat:   29.525760,
-            lng: -98.5755203
-
-        }
-    }, {
-        mapid: 'map-zoom-20',
-        zoom: 20,
-        center: {
-            lat:   29.525760,
-            lng: -98.5755203
-
-        }
-    }, {
-        mapid: 'map-original',
+        mapid: 'map-first',
+        name: 'Kohinoor',
+        address: '9425 Fredericksburg Rd, San Antonio, TX 78240',
+        content: "<strong>Kohinoor</strong><br>" +
+        "<em>Family-owned eatery featuring a range of classic<br> Pakistani dishes in a spacious, casual dining room.</em>" +
+        "<br><a href=\"http://kohinoorsa.com\">kohinoorsa.com</a> ",
         zoom: 18,
         center: {
             lat:   29.525760,
             lng: -98.5755203
 
+        },
+        restaurant: {
+            lat: 29.525760,
+            lng: -98.5755203
         }
-    }
-    ];
+    }, {
+        mapid: 'map-second',
+        name: 'Chama Gaucha',
+        address: '4175, 18318 Sonterra Pl, San Antonio, TX 78258',
+        content: "<strong>Chama Gaucha</strong><br>" +
+        "<em>Amazing Brazillian Steakhouse with many<br> different types of meat. </em>" +
+        "<br><a href=\"http://chamagaucha.com\">chamagaucha.com</a> ",
+        zoom: 15,
+        center: {
+            lat:   29.6102391,
+            lng: -98.4977934
 
-    console.log(mapOptions);
+        },
+        restaurant: {
+            lat: 29.6102391,
+            lng: -98.4977934
+        }
+    }, {
+        mapid: 'map-third',
+        name: 'Cappys',
+        address: '5011 Broadway St, San Antonio, TX 78209',
+        content: "<strong>Cappys</strong><br>" +
+        "<em>Fine dining resturant with a nice atmosphhere<br> Great place to take a date or wife</em>" +
+        "<br><a href=\"http://cappyssa.com\">cappys.com</a> ",
+        zoom: 18,
+        center: {
+            lat:   29.4726586,
+            lng: -98.463831
+
+        },
+        restaurant: {
+            lat: 29.4726586,
+            lng: -98.463831
+        }
+    }, {
+        mapid: 'map-fourth',
+        name: 'Rockets Feed',
+        address: '9135 Schaefer Rd, Converse, TX 78109',
+        content: "<strong>Rockets Feed</strong><br>" +
+        "<em>Family-owned small local burger joint<br> Has a fantastic bun and great burgers</em>" +
+        "<br><a href=\"http://kohinoorsa.com\">rocketsfeed.com</a> ",
+        zoom: 18,
+        center: {
+            lat: 29.5071885,
+            lng: -98.3084192
+        },
+        restaurant: {
+            lat: 29.5071885,
+            lng:-98.3084192
+        }
+    },
+        {
+            mapid: 'map-fifth',
+            name: 'Texas Pride Barbecue',
+            address: '2980 TX-1604 Loop, Adkins, TX 78101',
+            content: "<strong>Texas Pride</strong><br>" +
+            "<em>Great BBQ joint for classic texas taste<br> Hosts events and was features on Diner Dive and Drive Ins</em>" +
+            "<br><a href=\"http://texaspride.com\">texaspride.com</a> ",
+            zoom: 18,
+            center: {
+                lat:   29.3935069,
+                lng:-98.2397353
+            },
+            restaurant: {
+                lat:  29.3935069,
+                lng: -98.2397353
+            }
+        }
+    ];
 
     // Render the map
         var maps = [];
-
+        var geocoders = [];
+        var markers = [];
+        var infoWindows = [];
 
 
         mapOptions.forEach(function(e) {
-            console.log(e.mapid);
+            //console.log(e.mapid);
            maps.push(new google.maps.Map(document.getElementById(e.mapid), e));
+           geocoders.push(new google.maps.Geocoder());
+           markers.push(new google.maps.Marker({
+               position: e.restaurant,
+               map: maps[maps.length - 1],
+               animation: google.maps.Animation.DROP
+               })
+           );
+
+            var contentString = e.content;
+            var marker =  markers[markers.length-1];
+            var map = maps[maps.length-1];
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, contentString) {
+                return function() {
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, marker);
+                }
+            })(marker, contentString));
+
+
+            geocoders[geocoders.length-1].geocode({ "address": e.address }, function(results, status) {
+
+                // Check for a successful result
+                if (status == google.maps.GeocoderStatus.OK) {
+                    // Recenter the map over the address
+                        maps[maps.length-1].setCenter(results[0].geometry.location);
+                } else {
+                    alert("Geocoding was not successful - STATUS: " + status);
+                }
+            });
+
+
+
+
+            //
+            //
+            // window.google.maps.event.addListener(markers[markers.length-1], 'click', function () {
+            //
+            // });
+
+
+
+
+
+
+        console.log(infoWindows);
+
+
+
 
         });
 
 
-        // maps[0] = new google.maps.Map(document.getElementById(mapOptions[3].mapid), mapOptions[3]);
-        // maps[1] = new google.maps.Map(document.getElementById(mapOptions[0].mapid), mapOptions[0]);
-        // maps[2] = new google.maps.Map(document.getElementById("map-zoom-15"), mapOptions[1]);
-        // maps[3] = new google.maps.Map(document.getElementById("map-zoom-20"), mapOptions[2]);
-
-    // Set our address to geocode
-    var address = "9425 Fredericksburg Rd, San Antonio, TX 78240";
-
-    // Init geocoder object
-    var geocoder = new google.maps.Geocoder();
-
-
-    var restaurant = { lat: 29.525760, lng: -98.5755203};
-
-    // Add the marker to our existing map
-    var marker = new google.maps.Marker({
-        position: restaurant,
-        map: maps[0],
-        animation: google.maps.Animation.DROP
-    });
+    // // Set our address to geocode
+    // var address = "9425 Fredericksburg Rd, San Antonio, TX 78240";
+    //
+    // // Init geocoder object
+    // var geocoder = new google.maps.Geocoder();
+    //
+    //
+    // var restaurant = { lat: 29.525760, lng: -98.5755203};
+    //
+    // // Add the marker to our existing map
+    // var marker = new google.maps.Marker({
+    //     position: restaurant,
+    //     map: maps[0],
+    //     animation: google.maps.Animation.DROP
+    // });
 
 
-    window.google.maps.event.addListener(marker, 'click', function () {
-        var infowindow = new google.maps.InfoWindow({
-            content: "<strong>Kohinoor</strong><br>" +
-            "<em>Family-owned eatery featuring a range of classic<br> Pakistani dishes in a spacious, casual dining room.</em>" +
-            "<br><a href=\"http://kohinoorsa.com\">kohinoorsa.com</a> "
-        });
-
-
-        // Open the window using our map and marker
-        infowindow.open(maps[0], marker);
-    });
-
-
+    // window.google.maps.event.addListener(marker, 'click', function () {
+    //     var infowindow = new google.maps.InfoWindow({
+    //         content: "<strong>Kohinoor</strong><br>" +
+    //         "<em>Family-owned eatery featuring a range of classic<br> Pakistani dishes in a spacious, casual dining room.</em>" +
+    //         "<br><a href=\"http://kohinoorsa.com\">kohinoorsa.com</a> "
+    //     });
+    //
+    //
+    //     // Open the window using our map and marker
+    //     infowindow.open(maps[0], marker);
+    // });
 
 
     // Geocode our address
-       geocoder.geocode({ "address": address }, function(results, status) {
 
-    // Check for a successful result
-       if (status == google.maps.GeocoderStatus.OK) {
-
-    // Recenter the map over the address
-
-    for(var i = 0; i < maps.length; i++) {
-               maps[i].setCenter(results[0].geometry.location);
-           }
-    } else {
-        alert("Geocoding was not successful - STATUS: " + status);
-      }
-    });
 
 </script>
 
