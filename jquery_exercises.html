@@ -1,22 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Jquery - Funny Pun</title>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Jquery - Funny Pun</title>
+    </head>
+    <body>
 
-<h1>????</h1>
+    <h1 id="title">Hello, JQuery!</h1>
 
-<script src="js/jquery.js"></script>
-<script>
-    "use strict";
+    <p id="title-info">Query makes selecting elements in the DOM very simple and has a powerful and optimized selector engine.</p>
 
-    $(document).ready(function() {
+    <ul id="versions">
+        <li class="info">jQuery 1.x - Use this if you need to support IE 6, 7, or 8</li>
+        <li class="info">jQuery 2.x - Smaller and faster that version 1.x with the same API, but no support for IE 6, 7, or 8</li>
+        <li class="info">jQuery 3.x - Newest version, a few differences in the API from version 1.x or 2.x, some performance improvements</li>
+    </ul>
+
+    <div id="main-info">
+        <p class="details">We will be using the uncompressed copies for our applications and will switch them out for the compressed
+            versions when we launch our product on a production server.</p>
+    </div>
+
+
+
+    <script src="js/jquery.js"></script>
+    <script>
+        "use strict";
+
+        $(document).ready(function() {
 
             alert('Page Loaded.');
 
-    });
-</script>
-</body>
-</html>
+        });
+    </script>
+    </body>
+    </html>
