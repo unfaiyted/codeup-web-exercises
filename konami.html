@@ -23,6 +23,7 @@
     🅱️ B
     🅰️ A
     Enter
+
     </div>
 
     <div id="codeBox"></div>
@@ -38,7 +39,8 @@
 
 
     var keysPressed = 0;
-    var inputList = [37, 38, 39, 40, 65, 66];
+    var inputList = [37, 38, 39, 40, 66, 65, 13];
+    var iconList = ["🔼","🔽","▶️","◀️","🅱️", "🅰️","🚪"];
 
     $(document).keyup(function(event){
         console.log(event.keyCode);
@@ -47,14 +49,21 @@
         if (jQuery.inArray(event.keyCode, inputList) !== -1) {
 
             $('#codeBox').html(function (i, origText) {
-                return origText + event.keyCode;
-            });
 
+                return origText + ' ' + iconList[jQuery.inArray(event.keyCode, inputList)];
+            });
 
         }
 
-
         keysPressed++;
+
+      if (keysPressed > 15) {
+
+          $('#codeBox').html(function (i, origText) {
+              return ' ';
+          }) ;
+          keysPressed = 0;
+      }
 
     });
 
