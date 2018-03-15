@@ -3,35 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>🔼🔼 🔽🔽 ◀️▶️ ◀️▶️ 🅱️🅰️ 🚪</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        /* Standard syntax */
+        @keyframes shake {
+            10%, 90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+
+            20%, 80% {
+                transform: translate3d(2px, 0, 0);
+            }
+
+            30%, 50%, 70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%, 60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+
+        .apply-shake {
+            animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        #codeBox {
+            font-size: 35px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
+<div class="container text-center">
 
 
 <h1>Konami Code</h1>
 
 
-<h2>Code Input Center</h2>
-
     <div id="inputs">
-        Valid inputs:
-    🔼 Up
-    🔽 Down
-    ▶️ Right
-    ◀️️ Left
-    🅱️ B
-    🅰️ A
-    Enter
 
     </div>
 
-    <div id="codeBox"></div>
+
+
+
+
+
+
+    <div id="codeBox-main" class="card">
+        <div class="card-header">
+            <h2>Code Input Center</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">  Valid inputs:
+                🔼 Up
+                🔽 Down
+                ▶️ Right
+                ◀️️ Left
+                🅱️ B
+                🅰️ A
+                🚪 Enter
+            </h5>
+            <hr>
+            <div id="codeBox"></div>
+        </div>
+    </div>
+
+
+
+
 
 </div>
 
 </body>
 
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Your custom JS goes here -->
 
 <script src="js/jquery.js"></script>
 <script>
@@ -39,29 +93,33 @@
 
 
     var keysPressed = 0;
-    var inputList = [37, 38, 39, 40, 66, 65, 13];
+    var inputList = [38, 40, 39, 37, 66, 65, 13];
     var iconList = ["🔼","🔽","▶️","◀️","🅱️", "🅰️","🚪"];
 
     $(document).keyup(function(event){
         console.log(event.keyCode);
 
-
         if (jQuery.inArray(event.keyCode, inputList) !== -1) {
 
             $('#codeBox').html(function (i, origText) {
 
+                $( "#codeBox-main" ).removeClass('apply-shake');
+
                 return origText + ' ' + iconList[jQuery.inArray(event.keyCode, inputList)];
             });
 
+            keysPressed++;
         }
 
-        keysPressed++;
 
       if (keysPressed > 15) {
 
-          $('#codeBox').html(function (i, origText) {
+          $('#codeBox').html(function () {
               return ' ';
-          }) ;
+          });
+
+
+          $( "#codeBox-main" ).addClass('apply-shake');
           keysPressed = 0;
       }
 
