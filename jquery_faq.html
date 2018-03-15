@@ -11,14 +11,15 @@
         .invisible {
                 display: none;
         }
+
+        .bold {
+            font-weight: bold;
+        }
+
     </style>
 
 </head>
 <body>
-
-
-
-
 
 
 <button id="show-all">Show all </button>
@@ -54,6 +55,8 @@
     <dd class="invisible">You can book some park tours through Recreation.gov such as WWII Valor in the Pacific (Pearl Harbor), many Mammoth Cave National Park cave tours, Independence National Historical Park tours, and more. Not all parks participate in this reservation service. For more information on tours offered at a specific park, please see the park search. </dd>
 </dl>
 
+<button id="yellow-button">Yellow!</button>
+
 <h1>Parks List</h1>
 <h3>Big Bend</h3>
 <ul id="big-bend">
@@ -84,6 +87,21 @@
     "use strict";
 
     $(document).ready(function() {
+
+
+        $('#yellow-button').click(function () {
+            $("li:last-child").css('background-color','#FF0');
+        });
+
+        $('li').click(function () {
+          // $(this).parent().css('color','blue');
+            $(this).parent().find('li:first').css('color','blue');
+            console.log($(this).parent().find('li:first').html());
+        });
+
+        $('h3').click(function () {
+            $(this).next().children().toggleClass('bold');
+        });
 
         $('#show-all').click(function () {
             $('.highlight').removeClass('highlight');
