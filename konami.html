@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🔼🔼 🔽🔽 ◀️▶️ ◀️▶️ 🅱️🅰️ 🚪</title>
+</head>
+<body>
+
+<div class="container">
+
+
+<h1>Konami Code</h1>
+
+
+<h2>Code Input Center</h2>
+
+    <div id="inputs">
+        Valid inputs:
+    🔼 Up
+    🔽 Down
+    ▶️ Right
+    ◀️️ Left
+    🅱️ B
+    🅰️ A
+    Enter
+    </div>
+
+    <div id="codeBox"></div>
+
+</div>
+
+</body>
+
+
+<script src="js/jquery.js"></script>
+<script>
+    "use strict";
+
+
+    var keysPressed = 0;
+    var inputList = [37, 38, 39, 40, 65, 66];
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+
+
+        if (jQuery.inArray(event.keyCode, inputList) !== -1) {
+
+            $('#codeBox').html(function (i, origText) {
+                return origText + event.keyCode;
+            });
+
+
+        }
+
+
+        keysPressed++;
+
+    });
+
+</script>
+</body>
+</html>
