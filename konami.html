@@ -8,6 +8,34 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
+
+        html, body {
+            background-color: black;
+            height: 100%;
+        }
+
+        h1 {
+            padding-top: 100px;
+            color: #af2b2b;
+        }
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .jumbotron {
+            position: absolute;
+            min-width: 700px;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            border: 5px solid #8c8b8b;
+            background-color: #8c8b8b;
+        }
+
         /* Standard syntax */
         @keyframes shake {
             10%, 90% {
@@ -34,22 +62,20 @@
         #codeBox {
             font-size: 35px;
         }
+
+
+        .hide {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="container text-center">
 
-
-<h1>Konami Code</h1>
-
-
-    <div id="inputs">
-
-    </div>
-
-
-
+    <h1>Konami Code</h1>
+    <div class="jumbotron">
 
 
 
@@ -74,9 +100,15 @@
     </div>
 
 
+    <div id="cheater-success" class="card text-white bg-success mb-3 hide">
+        <div class="card-header">Congrats</div>
+        <div class="card-body">
+            <h5 class="card-title">You got 30 lives!</h5>
+        </div>
+    </div>
 
 
-
+</div>
 </div>
 
 </body>
@@ -95,9 +127,10 @@
     var keysPressed = 0;
     var inputList = [38, 40, 39, 37, 66, 65, 13];
     var iconList = ["🔼","🔽","▶️","◀️","🅱️", "🅰️","🚪"];
+    var cheatCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    var userInput = [];
 
     $(document).keyup(function(event){
-        console.log(event.keyCode);
 
         if (jQuery.inArray(event.keyCode, inputList) !== -1) {
 
@@ -105,6 +138,7 @@
 
                 $( "#codeBox-main" ).removeClass('apply-shake');
 
+                userInput.push(event.keyCode);
                 return origText + ' ' + iconList[jQuery.inArray(event.keyCode, inputList)];
             });
 
@@ -112,7 +146,14 @@
         }
 
 
-      if (keysPressed > 15) {
+        if (JSON.stringify(cheatCode) === JSON.stringify(userInput))
+        {
+            $('#codeBox-main').addClass('hide');
+            $( "#cheater-success" ).removeClass('hide');
+            $("#cheater-success").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+        }
+
+      if (keysPressed > 15 || event.keyCode === 13) {
 
           $('#codeBox').html(function () {
               return ' ';
@@ -120,6 +161,7 @@
 
 
           $( "#codeBox-main" ).addClass('apply-shake');
+          userInput = [];
           keysPressed = 0;
       }
 
