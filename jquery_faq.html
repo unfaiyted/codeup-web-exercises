@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>National Park  Jquery FAQ</title>
+
+    <style>
+        .centered {
+            text-align: center;
+        }
+        .highlighted {
+            background-color: #FF0;
+        }
+    </style>
+
 </head>
 <body>
 
+
+<dl>
+    <dt>Question</dt>
+    <dd>Answer</dd>
+    <dt>Milk</dt>
+    <dd>White cold drink</dd>
+</dl>
+
+
+
+<script src="/js/jquery.js"></script>
+<script>
+    "use strict";
+
+    $(document).ready(function() {
+        $('#highlight-important').click(function(event) {
+            event.preventDefault();
+            $('.important').removeClass('highlighted');
+        });
+    });
+</script>
 </body>
 </html>
