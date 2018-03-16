@@ -15,7 +15,42 @@
         .bold {
             font-weight: bold;
         }
+        .frame {
+            height: 250px;
+            float: left;
+            display: inline-block;
+            border: 1px solid #000;
+            margin: 10px;
+            width: 300px;
+        }
 
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+            text-align: center;
+            width: 100%;
+        }
+
+        .item {
+            width: 300px;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .frame-one {
+              background-image: url('images/head.jpg');
+          }
+
+        .frame-two {
+            background-image: url('images/ipad.jpg');
+        }
+
+        .frame-three {
+            background-image: url('images/apple-ipad.jpg');
+        }
     </style>
 
 </head>
@@ -82,11 +117,115 @@
     <li>Yellowstone was originally nicknamed “Wonderland.”</li>
 </ul>
 
+
+
+<div class="container">
+
+    <div class="row" id='pictures'>
+        <div class="frame-one frame"></div>
+        <div class="frame-two frame"></div>
+        <div class="frame-three frame"></div>
+    </div>
+    <div class="row">
+        <div class="item">
+            <button id="button-one">Switch</button>
+        </div>
+        <div class="item">
+            <button id="button-two">Switch</button>
+        </div>
+
+        <div class="item">
+            <button id="button-three">Switch</button>
+        </div>
+
+
+    </div>
+</div>
+
 <script src="js/jquery.js"></script>
 <script>
     "use strict";
 
     $(document).ready(function() {
+
+
+        //
+        // The rules are the following:
+        //
+        //     The left frame swaps to the right and takes the image from the frame in the center.
+        //     The center frame swaps randomly to either the left or right.
+        //     The right frame swaps to the left and takes the image from the frame in the center.
+
+        $('#button-one').click(function () {
+            //The left frame swaps to the right and takes the image from the frame in the center.
+
+            var left = $('#pictures').find('div:first');
+            var right = $('#pictures').find('div:last');
+            var center = $('#pictures').find('div:eq(1)');
+
+            var leftStyle = left.attr('class');
+            var rightStyle = right.attr('class');
+
+            left.removeAttr('class').addClass(rightStyle);
+            right.removeAttr('class').addClass(leftStyle);
+
+            leftStyle  = left.attr('class');
+            var centerStyle = center.attr('class');
+
+            left.removeAttr('class').addClass(centerStyle);
+            center.removeAttr('class').addClass(leftStyle);
+
+        });
+
+        $('#button-two').click(function () {
+           // The center frame swaps randomly to either the left or right.
+
+            var randomBoolean = Math.random() >= 0.5;
+
+            var left = $('#pictures').find('div:first');
+            var right = $('#pictures').find('div:last');
+            var center = $('#pictures').find('div:eq(1)');
+
+            var leftStyle = left.attr('class');
+            var rightStyle = right.attr('class');
+            var centerStyle = center.attr('class');
+
+            if (randomBoolean == 1) {
+                left.removeAttr('class').addClass(centerStyle);
+                center.removeAttr('class').addClass(leftStyle);
+
+            } else {
+                right.removeAttr('class').addClass(centerStyle);
+                center.removeAttr('class').addClass(rightStyle);
+
+            }
+
+        }); $('#button-three').click(function () {
+            //The right frame swaps to the left and takes the image from the frame in the center.
+
+            var left = $('#pictures').find('div:first');
+            var right = $('#pictures').find('div:last');
+            var center = $('#pictures').find('div:eq(1)');
+
+
+            var leftStyle = left.attr('class');
+            var rightStyle = right.attr('class');
+
+            left.removeAttr('class').addClass(rightStyle);
+            right.removeAttr('class').addClass(leftStyle);
+
+            rightStyle  = right.attr('class');
+            var centerStyle = center.attr('class');
+
+            right.removeAttr('class').addClass(centerStyle);
+            center.removeAttr('class').addClass(rightStyle);
+
+        });
+
+
+
+
+
 
 
         $('#yellow-button').click(function () {
