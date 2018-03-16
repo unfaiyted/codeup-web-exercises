@@ -100,7 +100,7 @@
 
 <h1>Parks List</h1>
 <h3>Big Bend</h3>
-<ul id="big-bend">
+<ul id="big-bend" class="park-data">
     <li>3,472 square miles (8,991 km2)</li>
     <li>2,221,766 acres or 899,116 hectares.</li>
     <li>63 air miles north to south (102 km)</li>
@@ -108,7 +108,7 @@
 </ul>
 
 <h3>Enchanted Rock</h3>
-<ul id="enchanted-rock">
+<ul id="enchanted-rock"  class="park-data">
     <li>It is one of the most visited state parks in Texas:</li>
     <li>Hiking Enchanted Rock is like climbing the stairs of a 30- or 40-story building:</li>
     <li>As big as the dome seems, its base is even bigger... much bigger:</li>
@@ -116,7 +116,7 @@
 </ul>
 
 <h3>Yellow Stone</h3>
-<ul id="yellow-stone">
+<ul id="yellow-stone"  class="park-data">
     <li>Yellowstone is bigger than two U.S. states.</li>
     <li>A veteran of the Lewis and Clark expedition may have been the first American to see Yellowstone.</li>
     <li>One of Yellowstone’s earliest explorers was stranded there for 37 days.</li>
@@ -148,15 +148,25 @@
     </div>
 </div>
 
+
+<h2 id="register-now">REGISTER FOR THE SITE!@#!@# OR ELSE!!!!</h2>
+
 <script src="js/jquery.js"></script>
 <script>
     "use strict";
 
     $(document).ready(function() {
 
+
+        $('.park-data').hide();
+        $('#register-now').hide(0).delay(8000).fadeIn(1000);
+
+
         $('#newsletter-signup span').click(function () {
             $('#newsletter-signup').hide();
         });
+
+        $()
 
         $('.button-switch').click(function (e) {
             //determine what button was clicked
@@ -216,8 +226,6 @@
 
                 }
 
-
-
         });
 
 
@@ -233,6 +241,7 @@
 
         $('h3').click(function () {
             $(this).next().children().toggleClass('bold');
+            $(this).next().slideDown();
         });
 
         $('#show-all').click(function () {
