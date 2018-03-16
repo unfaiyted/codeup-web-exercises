@@ -57,6 +57,12 @@
 <body>
 
 
+
+<div id="newsletter-signup">
+    <h1>Would you like to sign up with our newsletter?</h1>
+    <span>x</span>
+</div>
+<hr>
 <button id="show-all">Show all </button>
 
 <dl>
@@ -148,12 +154,9 @@
 
     $(document).ready(function() {
 
-        //
-        // The rules are the following:
-        //
-        //     The left frame swaps to the right and takes the image from the frame in the center.
-        //     The center frame swaps randomly to either the left or right.
-        //     The right frame swaps to the left and takes the image from the frame in the center.
+        $('#newsletter-signup span').click(function () {
+            $('#newsletter-signup').hide();
+        });
 
         $('.button-switch').click(function (e) {
             //determine what button was clicked
@@ -216,17 +219,6 @@
 
 
         });
-
-
-
-        $('#button-three').click(function () {
-
-
-
-
-        });
-
-
 
 
         $('#yellow-button').click(function () {
