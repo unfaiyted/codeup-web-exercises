@@ -128,14 +128,14 @@
     </div>
     <div class="row">
         <div class="item">
-            <button id="button-one">Switch</button>
+            <button class="button-switch" id="button-one">Switch</button>
         </div>
         <div class="item">
-            <button id="button-two">Switch</button>
+            <button class="button-switch" id="button-two">Switch</button>
         </div>
 
         <div class="item">
-            <button id="button-three">Switch</button>
+            <button class="button-switch" id="button-three">Switch</button>
         </div>
 
 
@@ -148,7 +148,6 @@
 
     $(document).ready(function() {
 
-
         //
         // The rules are the following:
         //
@@ -156,31 +155,8 @@
         //     The center frame swaps randomly to either the left or right.
         //     The right frame swaps to the left and takes the image from the frame in the center.
 
-        $('#button-one').click(function () {
-            //The left frame swaps to the right and takes the image from the frame in the center.
-
-            var left = $('#pictures').find('div:first');
-            var right = $('#pictures').find('div:last');
-            var center = $('#pictures').find('div:eq(1)');
-
-            var leftStyle = left.attr('class');
-            var rightStyle = right.attr('class');
-
-            left.removeAttr('class').addClass(rightStyle);
-            right.removeAttr('class').addClass(leftStyle);
-
-            leftStyle  = left.attr('class');
-            var centerStyle = center.attr('class');
-
-            left.removeAttr('class').addClass(centerStyle);
-            center.removeAttr('class').addClass(leftStyle);
-
-        });
-
-        $('#button-two').click(function () {
-           // The center frame swaps randomly to either the left or right.
-
-            var randomBoolean = Math.random() >= 0.5;
+        $('.button-switch').click(function (e) {
+            //determine what button was clicked
 
             var left = $('#pictures').find('div:first');
             var right = $('#pictures').find('div:last');
@@ -190,40 +166,65 @@
             var rightStyle = right.attr('class');
             var centerStyle = center.attr('class');
 
-            if (randomBoolean == 1) {
-                left.removeAttr('class').addClass(centerStyle);
-                center.removeAttr('class').addClass(leftStyle);
+                switch (e.target.id) {
 
-            } else {
-                right.removeAttr('class').addClass(centerStyle);
-                center.removeAttr('class').addClass(rightStyle);
+                    case 'button-one':
+                        //The left frame swaps to the right and takes the image from the frame in the center.
 
-            }
+                        left.removeAttr('class').addClass(rightStyle);
+                        right.removeAttr('class').addClass(leftStyle);
 
-        }); $('#button-three').click(function () {
-            //The right frame swaps to the left and takes the image from the frame in the center.
+                        leftStyle  = left.attr('class');
 
-            var left = $('#pictures').find('div:first');
-            var right = $('#pictures').find('div:last');
-            var center = $('#pictures').find('div:eq(1)');
+                        left.removeAttr('class').addClass(centerStyle);
+                        center.removeAttr('class').addClass(leftStyle);
+
+                        break;
+                    case 'button-two':
+
+                        var randomBoolean = Math.random() >= 0.5;
+
+                        if (randomBoolean == 1) {
+                            left.removeAttr('class').addClass(centerStyle);
+                            center.removeAttr('class').addClass(leftStyle);
+
+                        } else {
+                            right.removeAttr('class').addClass(centerStyle);
+                            center.removeAttr('class').addClass(rightStyle);
+
+                        }
+
+                        break;
+                    case 'button-three':
+                        //The right frame swaps to the left and takes the image from the frame in the center.
+
+                        left.removeAttr('class').addClass(rightStyle);
+                        right.removeAttr('class').addClass(leftStyle);
+
+                        rightStyle  = right.attr('class');
+
+                        right.removeAttr('class').addClass(centerStyle);
+                        center.removeAttr('class').addClass(rightStyle);
 
 
-            var leftStyle = left.attr('class');
-            var rightStyle = right.attr('class');
+                        break;
+                    default:
+                        console.log('this shouldn\'t happen');
 
-            left.removeAttr('class').addClass(rightStyle);
-            right.removeAttr('class').addClass(leftStyle);
+                }
 
-            rightStyle  = right.attr('class');
-            var centerStyle = center.attr('class');
 
-            right.removeAttr('class').addClass(centerStyle);
-            center.removeAttr('class').addClass(rightStyle);
 
         });
 
 
 
+        $('#button-three').click(function () {
+
+
+
+
+        });
 
 
 
