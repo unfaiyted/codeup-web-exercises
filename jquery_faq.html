@@ -61,9 +61,9 @@
 
 
 
-<div id="newsletter-signup">
-    <h1>Would you like to sign up with our newsletter?</h1>
-    <span>x</span>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Hey User!?</strong> Would you like to sign up with our newsletter?
 </div>
 <hr>
 <button id="show-all">Show all </button>
@@ -152,21 +152,38 @@
 </div>
 
 
-<h2 id="register-now">REGISTER FOR THE SITE!@#!@# OR ELSE!!!!</h2>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-lg">Large modal</button>
+
+<div id="register-now" class="modal fade modal-lg" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <h2>REGISTER FOR THE SITE!@#!@# OR ELSE!!!!</h2>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- Your custom JS goes here -->
-<script src="js/jquery.js"></script>
 <script>
     "use strict";
+
 
     $(document).ready(function() {
 
 
+        setTimeout(function() {
+            $('#register-now').modal();
+        }, 8000);
+
         $('.park-data').hide();
-        $('#register-now').hide(0).delay(8000).fadeIn(1000);
+
+        // $('#register-now').delay(8000).fadeIn(1000);
+
 
 
         $('#newsletter-signup span').click(function () {
