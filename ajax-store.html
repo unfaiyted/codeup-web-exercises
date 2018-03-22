@@ -24,12 +24,103 @@
 <script>
 (function() {
     "use strict";
+
     // TODO: Create an ajax GET request for /data/inventory.json
+    function onSuccess(data, status, jqXhr) {
+        console.log('It worked');
+
+           var organized = [];
+
+
+
+         // Sorting data to be viewed properly in table.
+        $.each(data, function (i, item) {
+
+
+
+            $('#insertProducts').append('<tr>');
+
+                organized[i] = {};
+
+                organized[i].title = '';
+                organized[i].quantity = '';
+                organized[i].price = '';
+                organized[i].categories = '';
+
+
+                var $tr = $('<tr>').append(
+                    $('<td>').text(item.title),
+                    $('<td>').text(item.quantity),
+                    $('<td>').text(item.price),
+                    $('<td>').text(item.categories),
+                );
+
+            console.log($tr.wrap('<p>').html());
+
+
+        }) ;
+
+
+        // var counter = 0;
+        //
+        // $.each(organized, function(i, item) {
+        //
+        //     console.log(i + " " + item.title);
+        //      // $('#insertProducts').html(function() {
+        //      //          return $(this).html() + "<tr>"
+        //      //   });
+        //     $('#insertProducts').append('<tr>');
+        //
+        //           $.each(item, function(index, value) {
+        //
+        //               console.log('sub' + index);
+        //
+        //                   $('#insertProducts').html(function() {
+        //                           return $(this).html() + '<td>' +  value  + '</td>' ;
+        //                    });
+        //           });
+        //
+        //     // $('#insertProducts').html(function() {
+        //     //              return $(this).html() + "</tr>" ;
+        //     // });
+        //
+        //     $('#insertProducts').append('</tr>');
+        //
+        // });
+        //
+        //
+        // // $('#insertProducts').html(function() {
+        // //
+        // //         return $(this).html() +     i +' : ' + index + ' ' + value  ;
+        // //     });
+        // console.log(organized[0].title);
+    }
+
+    function onFail() {
+        console.log('It failed');
+
+    }
+
+    function onOver() {
+        console.log('Process complete.');
+    }
+
+    var data = $.ajax("data/inventory.json")
+        .done(onSuccess)
+        .fail(onFail)
+        .always(onOver);
 
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+
+
+
+
+   //
 })();
 </script>
 
