@@ -30,5 +30,21 @@
             "tool"
         ],
         "price": 10
+    },
+    {
+    "title": "Cross-Pein Hammer",
+    "quantity": 16,
+    "categories": [
+        "tool"
+    ],
+    "price": 17
+    },
+    {
+        "title": "Needle",
+        "quantity": 2,
+        "categories": [
+            "tool"
+        ],
+        "price": 2
     }
 ]
