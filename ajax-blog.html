@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>I'm so aJax'ed up!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Faster+One|Lobster');
+
+        h1 {
+            font-family: 'Faster One', cursive;
+
+        }
+       .card p {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="text-center">aJax'ed Up!</h1>
+
+    <div id="posts">
+
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+
+
+    $.ajax({
+        url: "data/blog.json",
+        type: "GET",
+        data: {
+            limit:  100,
+            offset: 0
+        }
+    }).done(function(data) {
+
+        console.log(data);
+
+        $.each(data, function(i, post) {
+
+            $('<div class="card m-3">').append(
+                $('<div class="card-header">').text(post.title),
+                $('<div class="card-text p-4">').text(post.content),
+                $('<div class="card-footer">').append(
+                $('<small class="text-muted mr-auto">').text(post.date),
+                $('<p class="text-muted text-right">')
+                    .html('<span class="badge badge-default">' + post.categories.toString().split(',').join('</span><span class="badge badge-default">') + '</span>'))
+            ).appendTo('#posts');
+
+
+
+        });
+
+    });
+
+
+</script>
+</body>
+</html>
