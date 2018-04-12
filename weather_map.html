@@ -6,10 +6,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <style>
+        html,body {
+            background-color: #7abcff;
+        }
+
+        #weather .day {
+            background-color: grey;
+            border: 1px solid #000;
+        }
+
+
+    </style>
+
 </head>
 <body>
+Weather Application
 
-<div id="weather"></div>
+
+<div id="city"></div>
+
+<div id="weather" class="row"></div>
+<div id="map"></div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -25,7 +43,7 @@
 
 
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-            appid: "25681ee9eabf39eefc412c327e1bd15a",
+            appid: "8f32c0149a278cdb5f995fbb3d98eba5",
             //q:     "San Antonio, US" //4726206
             id: 4726206,
             units: "imperial",
@@ -33,13 +51,31 @@
         }).done(function(data) {
             console.log(data);
 
+            $('#city').text(data.city.name);
 
-            $('<div>').append(
-                $('<div>').text(data.name),
-                $().text()
-            ).appendTo('#weather');
+            $.each(data.list, function (i, post) {
+                console.log(i + post.humidity);
 
 
+                $('<div class="day col-4">').append(
+                 $('<div>').text(post.temp.max  + "/" + post.temp.min),
+                    $('<div>').append($('<div>').html(`<img src="http://openweathermap.org/img/w/${post.weather[0].icon}.png">`)),
+                    $('<div>').text(`${post.weather[0].main}: ${post.weather[0].description}`),
+                    $('<div>').text(`Humidity: ${post.humidity}`),
+                    $('<div>').text(`Wind: ${post.speed}`),
+                    $('<div>').text(`Wind: ${post.pressure}`)
+
+
+                    //$().text()
+                ).appendTo('#weather');
+
+
+            });
+            //
+            // $('<div>').append
+            //     $('<div>').text(data.name),
+            //     $().text()
+            // ).appendTo('#weather')
 
         });
 
