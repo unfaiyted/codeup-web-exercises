@@ -16,6 +16,13 @@
             border: 1px solid #000;
         }
 
+        #map-first {
+            width: 800px;
+            height: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
 
     </style>
 
@@ -25,10 +32,11 @@ Weather Application
 
 
 <div id="city"></div>
-
 <div id="weather" class="row"></div>
-<div id="map"></div>
+<div id="map-first"></div>
 
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp8riwMMofm7Djpcl1TB8z534HQg3pLeM"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -40,63 +48,139 @@ Weather Application
     (function() {
         "use strict";
 
+        var mapOptions = [{
+            mapid: 'map-first',
+            name: 'San Antonio Location',
+            address: '9425 Fredericksburg Rd, San Antonio, TX 78240',
+            zoom: 5,
+            center: {
+                lat:   29.525760,
+                lng: -98.5755203
+
+            },
+            restaurant: {
+                lat: 29.525760,
+                lng: -98.5755203
+            }
+        }];
 
 
-        $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-            appid: "8f32c0149a278cdb5f995fbb3d98eba5",
-            //q:     "San Antonio, US" //4726206
-            id: 4726206,
-            units: "imperial",
-            cnt: 3
-        }).done(function(data) {
-            console.log(data);
-
-            $('#city').text(data.city.name);
-
-            $.each(data.list, function (i, post) {
-                console.log(i + post.humidity);
+function createWeather(lat, lng) {
+    lat = typeof lat !== 'undefined' ? lat : 29.42679410009302;
+    lng = typeof lng !== 'undefined' ? lng : -98.49290083656143;
 
 
-                $('<div class="day col-4">').append(
-                 $('<div>').text(post.temp.max  + "/" + post.temp.min),
-                    $('<div>').append($('<div>').html(`<img src="http://openweathermap.org/img/w/${post.weather[0].icon}.png">`)),
-                    $('<div>').text(`${post.weather[0].main}: ${post.weather[0].description}`),
-                    $('<div>').text(`Humidity: ${post.humidity}`),
-                    $('<div>').text(`Wind: ${post.speed}`),
-                    $('<div>').text(`Wind: ${post.pressure}`)
+    $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+        appid: "8f32c0149a278cdb5f995fbb3d98eba5",
+        //q:     "San Antonio, US" //4726206
+        //id: 4726206,
+        lat: lat,
+        lon: lng,
+        units: "imperial",
+        cnt: 3
+    }).done(function (data) {
+        console.log(data);
 
 
-                    //$().text()
-                ).appendTo('#weather');
+        $('#weather').empty();
+
+        $('#city').text(data.city.name);
+
+        $.each(data.list, function (i, post) {
+            console.log(i + post.humidity);
 
 
-            });
-            //
-            // $('<div>').append
-            //     $('<div>').text(data.name),
-            //     $().text()
-            // ).appendTo('#weather')
+            $('<div class="day col-4">').append(
+                $('<div>').text(post.temp.max + "/" + post.temp.min),
+                $('<div>').append($('<div>').html(`<img src="http://openweathermap.org/img/w/${post.weather[0].icon}.png">`)),
+                $('<div>').text(`${post.weather[0].main}: ${post.weather[0].description}`),
+                $('<div>').text(`Humidity: ${post.humidity}`),
+                $('<div>').text(`Wind: ${post.speed}`),
+                $('<div>').text(`Wind: ${post.pressure}`)
+
+                //$().text()
+            ).appendTo('#weather');
 
         });
 
+    });
 
 
+}
+
+        // Render the map
+        var maps = [];
+        var geocoders = [];
+        var markers = [];
+
+        mapOptions.forEach(function(e) {
+            maps.push(new google.maps.Map(document.getElementById(e.mapid), e));
+            geocoders.push(new google.maps.Geocoder());
+
+            var map = maps[maps.length-1];
+
+            map.addListener('click', function(e) {
+                placeMarker(e.latLng, map);
+            });
 
 
-            // $.each(data, function(i, post) {
-            //
-            //     $('<div class="card m-3">').append(
-            //         $('<div class="card-header">').text(post.title),
-            //         $('<div class="card-text p-4">').text(post.content),
-            //         $('<div class="card-footer">').append(
-            //             $('<small class="text-muted mr-auto">').text(post.date),
-            //             $('<p class="text-muted text-right">')
-            //                 .html('<span class="badge badge-default">' + post.categories.toString().split(',').join('</span><span class="badge badge-default">') + '</span>'))
-            //     ).appendTo('#posts');
-            //
-            //
-            //
-            // });});
+            geocoders[geocoders.length-1].geocode({ "address": e.address }, function(results, status) {
+
+                // Check for a successful result
+                if (status == google.maps.GeocoderStatus.OK) {
+                    // Recenter the map over the address
+                    maps[maps.length-1].setCenter(results[0].geometry.location);
+                } else {
+                    alert("Geocoding was not successful - STATUS: " + status);
+                }
+            });
+
+
+        });
+
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
+
+        // Removes the markers from the map, but keeps them in the array.
+        function clearMarkers() {
+            setMapOnAll(null);
+        }
+
+        // Shows any markers currently in the array.
+        function showMarkers() {
+            setMapOnAll(map);
+        }
+
+        // Sets the map on all markers in the array.
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+
+        function placeMarker(position, map) {
+            deleteMarkers();
+
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map
+            });
+
+            markers.push(marker);
+
+            map.panTo(position);
+
+
+            createWeather(position.lat(), position.lng());
+        }
+
+
+//Initilizer
+createWeather();
+
 
     })();
 </script>
