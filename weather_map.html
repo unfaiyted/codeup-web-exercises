@@ -30,7 +30,6 @@
 <body>
 Weather Application
 
-
 <div id="city"></div>
 <div id="weather" class="row"></div>
 <div id="map-first"></div>
@@ -43,11 +42,50 @@ Weather Application
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
-
 <script>
     (function() {
         "use strict";
 
+
+// Creates a daily weather list based on input lat long, defaults to San Antonio
+function createWeather(lat, lng) {
+    lat = typeof lat !== 'undefined' ? lat : 29.42679410009302;
+    lng = typeof lng !== 'undefined' ? lng : -98.49290083656143;
+
+    $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+        appid: "8f32c0149a278cdb5f995fbb3d98eba5",
+        lat: lat,
+        lon: lng,
+        units: "imperial",
+        cnt: 3
+    }).done(function (data) {
+        console.log(data);
+
+        //Clear data.
+        $('#weather').empty();
+
+        $('#city').text(data.city.name);
+
+        $.each(data.list, function (i, post) {
+            console.log(i + post.humidity);
+
+            $('<div class="day col-4">').append(
+                $('<div>').text(post.temp.max + "/" + post.temp.min),
+                $('<div>').append($('<div>').html(`<img src="http://openweathermap.org/img/w/${post.weather[0].icon}.png">`)),
+                $('<div>').text(`${post.weather[0].main}: ${post.weather[0].description}`),
+                $('<div>').text(`Humidity: ${post.humidity}`),
+                $('<div>').text(`Wind: ${post.speed}`),
+                $('<div>').text(`Wind: ${post.pressure}`)
+            ).appendTo('#weather');
+
+        });
+
+    });
+
+
+}
+
+        // Google Maps Defaults
         var mapOptions = [{
             mapid: 'map-first',
             name: 'San Antonio Location',
@@ -57,56 +95,8 @@ Weather Application
                 lat:   29.525760,
                 lng: -98.5755203
 
-            },
-            restaurant: {
-                lat: 29.525760,
-                lng: -98.5755203
             }
         }];
-
-
-function createWeather(lat, lng) {
-    lat = typeof lat !== 'undefined' ? lat : 29.42679410009302;
-    lng = typeof lng !== 'undefined' ? lng : -98.49290083656143;
-
-
-    $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-        appid: "8f32c0149a278cdb5f995fbb3d98eba5",
-        //q:     "San Antonio, US" //4726206
-        //id: 4726206,
-        lat: lat,
-        lon: lng,
-        units: "imperial",
-        cnt: 3
-    }).done(function (data) {
-        console.log(data);
-
-
-        $('#weather').empty();
-
-        $('#city').text(data.city.name);
-
-        $.each(data.list, function (i, post) {
-            console.log(i + post.humidity);
-
-
-            $('<div class="day col-4">').append(
-                $('<div>').text(post.temp.max + "/" + post.temp.min),
-                $('<div>').append($('<div>').html(`<img src="http://openweathermap.org/img/w/${post.weather[0].icon}.png">`)),
-                $('<div>').text(`${post.weather[0].main}: ${post.weather[0].description}`),
-                $('<div>').text(`Humidity: ${post.humidity}`),
-                $('<div>').text(`Wind: ${post.speed}`),
-                $('<div>').text(`Wind: ${post.pressure}`)
-
-                //$().text()
-            ).appendTo('#weather');
-
-        });
-
-    });
-
-
-}
 
         // Render the map
         var maps = [];
@@ -123,7 +113,6 @@ function createWeather(lat, lng) {
                 placeMarker(e.latLng, map);
             });
 
-
             geocoders[geocoders.length-1].geocode({ "address": e.address }, function(results, status) {
 
                 // Check for a successful result
@@ -138,11 +127,30 @@ function createWeather(lat, lng) {
 
         });
 
+
+
+        // Places marker at location / Refreshes weather
+        function placeMarker(position, map) {
+            deleteMarkers();
+
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map
+            });
+
+            markers.push(marker);
+
+            map.panTo(position);
+
+            createWeather(position.lat(), position.lng());
+        }
+
+
+        // Deals with markers
         function deleteMarkers() {
             clearMarkers();
             markers = [];
         }
-
         // Removes the markers from the map, but keeps them in the array.
         function clearMarkers() {
             setMapOnAll(null);
@@ -161,26 +169,11 @@ function createWeather(lat, lng) {
         }
 
 
-        function placeMarker(position, map) {
-            deleteMarkers();
-
-            var marker = new google.maps.Marker({
-                position: position,
-                map: map
-            });
-
-            markers.push(marker);
-
-            map.panTo(position);
 
 
-            createWeather(position.lat(), position.lng());
-        }
 
-
-//Initilizer
+//Init weather
 createWeather();
-
 
     })();
 </script>
